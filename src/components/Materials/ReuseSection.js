@@ -23,7 +23,7 @@ class ReuseSection extends Component {
         <div className='social-media-hashtag'>#{this.state.material}</div>
         <ul className='social-feed-list'>
           <li className='social-feed-item'>
-            <div className='dummy-image'></div>
+            <div className='dummy-image placehoder'></div>
             <div className='social-text-area'>
               <h3>Amy Knight</h3>
               <p>
