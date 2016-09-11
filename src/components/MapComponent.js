@@ -1,9 +1,8 @@
-import React from 'react'
-import { connect } from 'react-redux'
-import * as LocationService from '../services/locationService'
-import * as MarkersService from '../services/markersService'
-import * as Store from '../store/store'
-import { initMap } from '../actions/actions'
+import React from "react";
+import {connect} from "react-redux";
+import * as MarkersService from "../services/markersService";
+import * as Store from "../store/store";
+import {initMap} from "../actions/actions";
 import {GoogleMapLoader, GoogleMap, Marker} from "react-google-maps";
 
 class MapComponent extends React.Component {
@@ -12,14 +11,14 @@ class MapComponent extends React.Component {
     }
 
     componentWillMount() {
-            MarkersService.getMarkers().then(function (markers) {
-                Store.dispatch(initMap(markers))
-            });
+        MarkersService.getMarkers().then(function (markers) {
+            Store.dispatch(initMap(markers))
+        });
     }
 
     render() {
         var icons = {
-            aluminum: {
+            aluminium: {
                 url: '/images/map-bunny.png'
             },
             pet: {
@@ -30,40 +29,71 @@ class MapComponent extends React.Component {
             }
         };
 
+        var bigIcons = {
+            aluminium: {
+                url: '/images/lg-bunny.png'
+            },
+            pet: {
+                url: '/images/lg-fox.png'
+            },
+            paper: {
+                url: '/images/lg-puppy.png'
+            }
+        };
+
+        var bigMarkers = this.props.markers.map((marker) => {
+            return (
+                <div>
+                    <div>
+                        <img src={bigIcons[marker.type].url}/>
+                    </div>
+                    <div>
+                        <div><h1>{marker.title}</h1></div>
+                        <div>{marker.description}</div>
+                    </div>
+                </div>);
+        });
+
         return (
-            <div style={{height: "100%"}}>
-                <GoogleMapLoader
-                    containerElement={
-                        <div
-                            style={{
-                                height: "600px",
-                            }}
-                        />
-                    }
-                    googleMapElement={
-                        <GoogleMap
-                            ref={(map) => console.log(map)}
-                            defaultZoom={13}
-                            defaultCenter={{lat: this.props.latitude, lng: this.props.longitude}}
-                            onClick={(event) => {
-                                console.log(event)
-                            }}>
-                            {
-                                this.props.markers.map((marker, index) => {
-                                    return (
-                                        <Marker
-                                            position={new google.maps.LatLng(marker.latitude, marker.longitude)}
-                                            onRightclick={(event) => console.log(event)}
-                                            icon={icons[marker.type]}
-                                        />
-                                    )
-                                })
-                            }
-                        </GoogleMap>
-                    }
-                />
+
+        <div style={{height: "100%"}}>
+            <div>
+                {bigMarkers}
             </div>
-        );
+            <GoogleMapLoader
+                containerElement={
+                    <div
+                        style={{
+                            height: "600px",
+                        }}
+                    />
+                }
+                googleMapElement={
+                    <GoogleMap
+                        ref={(map) => console.log(map)}
+                        defaultZoom={13}
+                        defaultCenter={{lat: this.props.latitude, lng: this.props.longitude}}
+                        onClick={(event) => {
+                            console.log(event)
+                        }}>
+                        {
+                            this.props.markers.map((marker, index) => {
+                                return (
+                                    <Marker
+                                        position={new google.maps.LatLng(marker.latitude, marker.longitude)}
+                                        onRightclick={(event) => console.log(event)}
+                                        icon={icons[marker.type]}
+                                        title={marker.title}
+                                    />
+                                )
+                            })
+                        }
+                    </GoogleMap>
+                }
+            />
+        </div>
+    )
+        ;
     }
 }
 
