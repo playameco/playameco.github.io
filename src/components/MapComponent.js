@@ -12,15 +12,9 @@ class MapComponent extends React.Component {
     }
 
     componentWillMount() {
-        LocationService.getCurrentLocation().then(function (location) {
             MarkersService.getMarkers().then(function (markers) {
-                Store.dispatch(initMap(location, markers))
-            })
-        }).catch(( location) => {
-            MarkersService.getMarkers().then(function (markers) {
-                Store.dispatch(initMap(location, markers))
-            })
-        });
+                Store.dispatch(initMap(markers))
+            });
     }
 
     render() {

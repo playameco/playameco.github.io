@@ -17,7 +17,6 @@ function mapReducer(state = initialState, action){
     switch (action.type) {
         case ACTIONS.FETCHED_MAP:
             console.log('reducer working', action);
-            if(action.location == null){
                 return {
                     markers: action.markers.map((marker) => {
                         return {
@@ -28,24 +27,10 @@ function mapReducer(state = initialState, action){
                             type: marker.properties.type
                         };
                     }),
-                    latitude: initialState.latitude,
-                    longitude: initialState.longitude
+                    latitude: 40.425602,
+                    longitude: -86.9183547
                 }
-            }else {
-                return {
-                    markers: action.markers.map((marker) => {
-                        return {
-                            latitude: marker.geometry.coordinates[1],
-                            longitude: marker.geometry.coordinates[0],
-                            properties: marker.properties.description,
-                            color: marker.properties.color,
-                            type: marker.properties.type
-                        };
-                    }),
-                    latitude: action.location.coords.latitude,
-                    longitude: action.location.coords.longitude
-                }
-            }
+            break;
         default:
             return state;
     };
