@@ -24,13 +24,13 @@ class MapComponent extends React.Component {
     render() {
         var icons = {
             aluminum: {
-                url: './map-bunny.png'
+                url: '/images/map-bunny.png'
             },
             pet: {
-                url: './map-fox.png'
+                url: '/images/map-fox.png'
             },
             paper: {
-                url: './map-pastry.png'
+                url: '/images/map-pastry.png'
             }
         };
 
