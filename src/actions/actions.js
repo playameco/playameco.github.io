@@ -38,48 +38,50 @@ export function getMaterialsList(){
  	    //Fetch state
  	    const state = getState()
 
+ 	    var dummyText = "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Phasellus eu arcu nec risus varius fringilla scelerisque quis tortor. Mauris eget accumsan libero, eget aliquet nulla. Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Suspendisse tincidunt est libero, vel porttitor lacus lacinia sit amet. Mauris mauris augue, sodales et metus non, condimentum dapibus nisl. Cras efficitur ipsum non facilisis mattis. Morbi auctor id nisi pulvinar euismod. Morbi pharetra dolor eget imperdiet ornare. In hac habitasse platea dictumst. Duis congue in libero at varius. Donec egestas, lacus eget consequat molestie, nisi dui tristique elit, non ornare nibh ipsum vel ex. Sed id mauris quis nisl laoreet laoreet. Morbi dictum faucibus lacinia. Quisque vel nulla dictum, commodo quam quis, pulvinar mauris.";
+
  	    var list = [
 	 	    {
 	 	    	name: 'paper',
 	 	    	types: [
 	 	    		{
 	 	    			type: 'Office Paper',
-	 	    			description: 'Recycle Paper...',
+	 	    			description: dummyText,
 	 	    			tutorial: [
 	 	    				''
 	 	    			]
 	 	    		},
 	 	    		{
 	 	    			type: 'Magazines',
-	 	    			description: 'Recycle Paper...',
+	 	    			description: dummyText,
 	 	    			tutorial: [
 	 	    				''
 	 	    			]
 	 	    		},
 	 	    		{
 	 	    			type: 'Newspaper',
-	 	    			description: 'Recycle Paper...',
+	 	    			description: dummyText,
 	 	    			tutorial: [
 	 	    				''
 	 	    			]
 	 	    		},
 	 	    		{
 	 	    			type: 'Phonebooks',
-	 	    			description: 'Recycle Paper...',
+	 	    			description: dummyText,
 	 	    			tutorial: [
 	 	    				''
 	 	    			]
 	 	    		},
 	 	    		{
 	 	    			type: 'Paperboard',
-	 	    			description: 'Recycle Paper...',
+	 	    			description: dummyText,
 	 	    			tutorial: [
 	 	    				''
 	 	    			]
 	 	    		},
 	 	    		{
 	 	    			type: 'Direct/Junk Mail',
-	 	    			description: 'Recycle Paper...',
+	 	    			description: dummyText,
 	 	    			tutorial: [
 	 	    				''
 	 	    			]
@@ -91,14 +93,14 @@ export function getMaterialsList(){
 	 	    	types: [
 	 	    		{
 	 	    			type: 'Corrugated Cardboard',
-	 	    			description: 'Recycle Cardboard...',
+	 	    			description: dummyText,
 	 	    			tutorial: [
 	 	    				''
 	 	    			]
 	 	    		},
 	 	    		{
 	 	    			type: 'Cardboard Boxes',
-	 	    			description: 'Recycle Cardboard...',
+	 	    			description: dummyText,
 	 	    			tutorial: [
 	 	    				''
 	 	    			]
@@ -110,14 +112,14 @@ export function getMaterialsList(){
 	 	    	types: [
 	 	    		{
 	 	    			type: 'Plastic Bottles',
-	 	    			description: 'Recycle plastics...',
+	 	    			description: dummyText,
 	 	    			tutorial: [
 	 	    				''
 	 	    			]
 	 	    		},
 	 	    		{
 	 	    			type: 'Grocery Store Bags',
-	 	    			description: 'Recycle plastics...',
+	 	    			description: dummyText,
 	 	    			tutorial: [
 	 	    				''
 	 	    			]
@@ -129,14 +131,14 @@ export function getMaterialsList(){
 	 	    	types: [
 	 	    		{
 	 	    			type: 'Aluminun Cans',
-	 	    			description: 'Recycle aluminun...',
+	 	    			description: dummyText,
 	 	    			tutorial: [
 	 	    				''
 	 	    			]
 	 	    		},
 	 	    		{
 	 	    			type: 'Aluminun Foil',
-	 	    			description: 'Recycle aluminun...',
+	 	    			description: dummyText,
 	 	    			tutorial: [
 	 	    				''
 	 	    			]
@@ -148,14 +150,14 @@ export function getMaterialsList(){
 	 	    	types: [
 	 	    		{
 	 	    			type: 'Steel Cans',
-	 	    			description: 'Recycle steel cans...',
+	 	    			description: dummyText,
 	 	    			tutorial: [
 	 	    				''
 	 	    			]
 	 	    		},
 	 	    		{
 	 	    			type: 'Tin Cans',
-	 	    			description: 'Recycle tin cans...',
+	 	    			description: dummyText,
 	 	    			tutorial: [
 	 	    				''
 	 	    			]
@@ -167,14 +169,14 @@ export function getMaterialsList(){
 	 	    	types: [
 	 	    		{
 	 	    			type: 'Glass Bottles',
-	 	    			description: 'Recycle glass...',
+	 	    			description: dummyText,
 	 	    			tutorial: [
 	 	    				''
 	 	    			]
 	 	    		},
 	 	    		{
 	 	    			type: 'Other Glass Containers',
-	 	    			description: 'Recycle glass...',
+	 	    			description: dummyText,
 	 	    			tutorial: [
 	 	    				''
 	 	    			]
@@ -186,7 +188,7 @@ export function getMaterialsList(){
 	 	    	types: [
 	 	    		{
 	 	    			type: 'Printer Cartridges',
-	 	    			description: 'Recycle ink cartridges...',
+	 	    			description: dummyText,
 	 	    			tutorial: [
 	 	    				''
 	 	    			]
@@ -198,14 +200,14 @@ export function getMaterialsList(){
 	 	    	types: [
 	 	    		{
 	 	    			type: 'Household Batteries',
-	 	    			description: 'Recycle batteries...',
+	 	    			description: dummyText,
 	 	    			tutorial: [
 	 	    				''
 	 	    			]
 	 	    		},
 	 	    		{
 	 	    			type: 'Car Batteries',
-	 	    			description: 'Recycle batteries...',
+	 	    			description: dummyText,
 	 	    			tutorial: [
 	 	    				''
 	 	    			]
@@ -217,14 +219,14 @@ export function getMaterialsList(){
 	 	    	types: [
 	 	    		{
 	 	    			type: 'Cooking Oil',
-	 	    			description: 'Recycle oil...',
+	 	    			description: dummyText,
 	 	    			tutorial: [
 	 	    				''
 	 	    			]
 	 	    		},
 	 	    		{
 	 	    			type: 'Car Oil',
-	 	    			description: 'Recycle oil...',
+	 	    			description: dummyText,
 	 	    			tutorial: [
 	 	    				''
 	 	    			]
@@ -236,35 +238,35 @@ export function getMaterialsList(){
 	 	    	types: [
 	 	    		{
 	 	    			type: 'Computers',
-	 	    			description: 'Recycle Computers...',
+	 	    			description: dummyText,
 	 	    			tutorial: [
 	 	    				''
 	 	    			]
 	 	    		},
 	 	    		{
 	 	    			type: 'Monitors',
-	 	    			description: 'Recycle Monitors...',
+	 	    			description: dummyText,
 	 	    			tutorial: [
 	 	    				''
 	 	    			]
 	 	    		},
 	 	    		{
 	 	    			type: 'Televisions',
-	 	    			description: 'Recycle Televisions...',
+	 	    			description: dummyText,
 	 	    			tutorial: [
 	 	    				''
 	 	    			]
 	 	    		},
 	 	    		{
 	 	    			type: 'Microwaves',
-	 	    			description: 'Recycle Microwaves...',
+	 	    			description: dummyText,
 	 	    			tutorial: [
 	 	    				''
 	 	    			]
 	 	    		},
 	 	    		{
 	 	    			type: 'Other Appliances',
-	 	    			description: 'Recycle Appliances...',
+	 	    			description: dummyText,
 	 	    			tutorial: [
 	 	    				''
 	 	    			]
