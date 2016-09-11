@@ -1,15 +1,14 @@
-export const initMap = (location, markers) => {
+export const initMap = (markers) => {
 	return (dispatch, getState) => {
 		const state = getState();
-		dispatch(fetchedMarkers(location, markers));
+		dispatch(fetchedMarkers(markers));
 	};
 };
 
-export const fetchedMarkers = (location, markers) => {
+export const fetchedMarkers = (markers) => {
 	return{
 		type: ACTIONS.FETCHED_MAP,
-		markers: markers,
-		location: location
+		markers: markers
 	};
 };
 
