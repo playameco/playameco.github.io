@@ -1,0 +1,80 @@
+*
+    padding: 0
+    margin: 0
+    outline: 0
+    box-sizing: border-box
+    &:before, &:after
+        box-sizing: border-box
+
+article,
+aside,
+figcaption,
+figure,
+footer,
+header,
+main,
+nav,
+section
+    display: block
+
+html,
+body
+    height: 100%
+
+html
+    overflow-y: scroll
+    -webkit-text-size-adjust: 100%
+    -ms-text-size-adjust: 100%
+    text-size-adjust: 100%
+
+body
+    font-smoothing: antialiased
+
+img
+    border: 0
+    vertical-align: middle
+    xmax-width: 100%
+    xheight: auto
+
+strong
+    font-weight: bold
+
+small
+    font-size: 80%
+
+button,
+input,
+select,
+textarea
+    font-size: inherit
+    color: inherit
+    font-smoothing: antialiased
+
+button
+    cursor: pointer
+
+input
+    &[type="button"],
+    &[type="reset"],
+    &[type="submit"]
+        cursor: pointer
+
+button::-moz-focus-inner,
+input::-moz-focus-inner
+    padding: 0
+    border: 0
+
+button
+    overflow: visible
+
+textarea
+    overflow: auto
+    resize: none
+
+table
+    border-collapse: collapse
+    border-spacing: 0
+
+th,
+td
+    padding: 0
