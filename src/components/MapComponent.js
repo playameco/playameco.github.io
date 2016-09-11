@@ -43,14 +43,15 @@ class MapComponent extends React.Component {
 
         var bigMarkers = this.props.markers.map((marker) => {
             return (
-                <div>
-                    <div>
+                <div className="mapitem">
+                    <div className='bigImg'>
                         <img src={bigIcons[marker.type].url}/>
                     </div>
-                    <div>
+                    <div className="mapDescription">
                         <div><h1>{marker.title}</h1></div>
                         <div>{marker.description}</div>
                     </div>
+                    <button className="directions btn btn-success pull-right">Directions</button>
                 </div>);
         });
 
