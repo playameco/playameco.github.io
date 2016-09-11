@@ -26,10 +26,10 @@ class RecycleSection extends Component {
 }
 
 var mapStateToProps = function(state, ownProps){
-    return {
-    	materials: state.materialsReducer.materials,
-      currentMaterial: state.materialsReducer.currentMaterial
-    };
+  return {
+    materials: state.materialsReducer.materials,
+    currentMaterial: state.materialsReducer.currentMaterial
+  };
 };
 RecycleSection = connect(state => (mapStateToProps), null)(RecycleSection);
 export default RecycleSection

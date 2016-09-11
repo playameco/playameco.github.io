@@ -23,7 +23,7 @@ class ReuseSection extends Component {
         <div className='social-media-hashtag'>#{this.state.material}</div>
         <ul className='social-feed-list'>
           <li className='social-feed-item'>
-            <div className='dummy-image placehoder'></div>
+            <div className='dummy-image placeholder'></div>
             <div className='social-text-area'>
               <h3>Amy Knight</h3>
               <p>
@@ -35,7 +35,7 @@ class ReuseSection extends Component {
             </div>
           </li>
           <li className='social-feed-item'>
-            <div className='dummy-image placehoder'></div>
+            <div className='dummy-image placeholder'></div>
             <div className='social-text-area'>
               <h3>Gwen Faraday</h3>
               <p>
@@ -46,7 +46,7 @@ class ReuseSection extends Component {
             </div>
           </li>
           <li className='social-feed-item'>
-            <div className='dummy-image placehoder'></div>
+            <div className='dummy-image placeholder'></div>
             <div className='social-text-area'>
               <h3>Jared Wilcurt</h3>
               <p>
@@ -58,12 +58,12 @@ class ReuseSection extends Component {
             </div>
           </li>
           <li className='social-feed-item'>
-            <div className='dummy-image placehoder'></div>
+            <div className='dummy-image placeholder'></div>
             <div className='social-text-area'>
               <h3>Kim Sharpe</h3>
               <p>
-                Look at how I reused this <strong>#{this.state.material}</strong>. 
-                Why throw stuff away, when it can be this beatiful? <strong>#amEco</strong>
+                See how I reused this <strong>#{this.state.material}</strong>. 
+                <strong>#amEco</strong>
               </p>
               <i className="fa fa-retweet" aria-hidden="true"></i> 4
               <i className="fa fa-heart" aria-hidden="true"></i> 11
