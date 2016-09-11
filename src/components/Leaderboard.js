@@ -2,8 +2,9 @@ import React, { Component } from 'react'
 import { connect } from 'react-redux'
 import $ from 'jquery'
 
-const URL_RECENT = 'https://fcctop100.herokuapp.com/api/fccusers/top/recent';
-const URL_ALL_TIME = 'https://fcctop100.herokuapp.com/api/fccusers/top/alltime';
+// import URL_RECENT from './leadersRecent.json';
+var URL_RECENT = require('json!./leadersRecent.json');
+var URL_ALL_TIME = require('json!./leadersAllTime.json');
 
 // Root React component
 class Leaderboard extends Component {
@@ -18,34 +19,17 @@ class Leaderboard extends Component {
       loading: false,
       sort_options: sortOptions,
       data_source: sortOptions.Recent,
-      users: []
+      users: sortOptions.Recent
     };
-
-    this.setSource = this.setSource.bind(this);
-    this.loadUsers = this.loadUsers.bind(this);
   }
 
   // Update URL and reload user list
-  setSource(url) {
+  setSource(data) {
+    console.log(data)
     this.setState({
-      data_source: url,
-      loading: true
-    }, () => {
-      this.loadUsers();
+      data_source: this.state.sort_options[data],
+      users: this.state.sort_options[data]
     });
-  }
-
-  // Retrieve leaderboard data
-  loadUsers() {
-    $.getJSON(this.state.data_source, (data) => {
-      this.setState({
-        users: data,
-        loading: false
-      });
-    });
-  }
-  componentDidMount() {
-    this.loadUsers();
   }
   render() {
     return (
@@ -56,8 +40,8 @@ class Leaderboard extends Component {
           </header>
           <Options value={this.state.data_source}
             options={this.state.sort_options}
-            onChange={this.setSource} />
-          <Leaderboard2 users={this.state.users} />
+            onChange={this.setSource.bind(this)} />
+          <LeaderboardItems users={this.state.users} />
         </div>
       </div>
     );
@@ -78,7 +62,7 @@ class Options extends Component {
     var optionKeys = Object.keys(this.props.options);
     var options = optionKeys.map((key) => {
       return (
-        <option key={key} value={this.props.options[key]}>{key}</option>
+        <option key={key} value={key}>{key}</option>
       );
     });
     return (
@@ -93,7 +77,7 @@ class Options extends Component {
 }
 
 // Display users from current data source
-class Leaderboard2 extends Component {
+class LeaderboardItems extends Component {
   render() {
     var items = this.props.users.map(function(user, pos) {
       return (

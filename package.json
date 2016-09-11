@@ -39,6 +39,7 @@
     "bootstrap": "^3.3.7",
     "express": "^4.14.0",
     "jquery": "^3.1.0",
+    "json-loader": "^0.5.4",
     "react": "^0.14.6",
     "react-dom": "^0.14.6",
     "react-fontawesome": "^1.1.0",
