@@ -17,7 +17,9 @@ class MapComponent extends React.Component {
                 Store.dispatch(initMap(location, markers))
             })
         }).catch(() => {
-
+            MarkersService.getMarkers().then(function (markers) {
+                Store.dispatch(initMap(null, markers))
+            })
         });
     }
 
