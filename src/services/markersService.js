@@ -86,8 +86,26 @@ export function getMarkers(){
                             40.42882914740398
                         ]
                     }
+                },
+                {
+                    "type": "Feature",
+                    "properties": {
+                        "color": "#7e7e7e",
+                        "marker-size": "medium",
+                        "marker-symbol": "",
+                        "description": "Purdue parking lot across from the Armory",
+                        "type": "paper"
+                    },
+                    "geometry": {
+                        "type": "Point",
+                        "coordinates": [
+                            -86.890461,
+                            40.417259
+                        ]
+                    }
                 }
             ];
+
 
         if (markers.length > 0) {
             resolve(markers);
