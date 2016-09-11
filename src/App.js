@@ -6,7 +6,7 @@ export default class App extends Component {
     return (
     	<div>
     		<div className='main-top-nav'>
-		      <img id='mainlogo' src='dist/images/ameco-logo.svg' alt='amEco App Logo' />
+		      <img id='mainlogo' src='images/ameco-logo.svg' alt='amEco App Logo' />
 		      <div>
 			    <Link to='/'>Home</Link>
 			    <Link to='/example'>Learn more about earning points</Link>

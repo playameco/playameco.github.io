@@ -36,7 +36,7 @@ module.exports = {
       loader: extractCSS.extract(['css?sourceMap','sass?sourceMap'])
     },
 
-    { test: /\.png|jpg$/, loader: 'url-loader?name=images/[name].[ext]' },
-    { test: /\.(svg|ttf|eot|woff(2)?)(\?[a-z0-9=&.]+)?$/, loader: 'url-loader?name=fonts/[name].[ext]' }]
+    { test: /\.png|svg|jpg$/, loader: 'url-loader?name=images/[name].[ext]' },
+    { test: /\.(ttf|eot|woff(2)?)(\?[a-z0-9=&.]+)?$/, loader: 'url-loader?name=fonts/[name].[ext]' }]
   }
 };

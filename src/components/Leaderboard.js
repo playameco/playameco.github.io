@@ -2,8 +2,8 @@ import React, { Component } from 'react'
 import { connect } from 'react-redux'
 import $ from 'jquery'
 
-const URL_RECENT = 'http://fcctop100.herokuapp.com/api/fccusers/top/recent';
-const URL_ALL_TIME = 'http://fcctop100.herokuapp.com/api/fccusers/top/alltime';
+const URL_RECENT = 'https://fcctop100.herokuapp.com/api/fccusers/top/recent';
+const URL_ALL_TIME = 'https://fcctop100.herokuapp.com/api/fccusers/top/alltime';
 
 // Root React component
 class Leaderboard extends Component {
