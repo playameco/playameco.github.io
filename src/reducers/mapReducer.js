@@ -22,7 +22,8 @@ function mapReducer(state = initialState, action){
                         return {
                             latitude: marker.geometry.coordinates[1],
                             longitude: marker.geometry.coordinates[0],
-                            properties: marker.properties.description,
+                            description: marker.properties.description,
+                            title: marker.properties.title,
                             color: marker.properties.color,
                             type: marker.properties.type
                         };

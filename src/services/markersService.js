@@ -9,7 +9,8 @@ export function getMarkers(){
                         "marker-size": "medium",
                         "marker-symbol": "",
                         "description": "Mixed Recycling Dropoff Points at Purdue",
-                        "type": "aluminum"
+                        "title": "Aluminium spot",
+                        "type": "aluminium"
                     },
                     "geometry": {
                         "type": "Point",
@@ -26,6 +27,7 @@ export function getMarkers(){
                         "marker-size": "medium",
                         "marker-symbol": "",
                         "description": "PRF parking lot at Fourth and Russell streets",
+                        "title": "PET spot",
                         "type": "pet"
                     },
                     "geometry": {
@@ -43,6 +45,7 @@ export function getMarkers(){
                         "marker-size": "medium",
                         "marker-symbol": "",
                         "description": "Water tower parking lot",
+                        "title": "Paper spot",
                         "type": "paper"
                     },
                     "geometry": {
@@ -60,7 +63,8 @@ export function getMarkers(){
                         "marker-size": "medium",
                         "marker-symbol": "",
                         "description": "Intersection of David Ross Road and Tower Drive",
-                        "type": "aluminum"
+                        "title": "Aluminium spot",
+                        "type": "aluminium"
                     },
                     "geometry": {
                         "type": "Point",
@@ -77,6 +81,7 @@ export function getMarkers(){
                         "marker-size": "medium",
                         "marker-symbol": "",
                         "description": "Purdue parking lot across from the Armory",
+                        "title": "PET spot",
                         "type": "pet"
                     },
                     "geometry": {
@@ -94,6 +99,7 @@ export function getMarkers(){
                         "marker-size": "medium",
                         "marker-symbol": "",
                         "description": "Purdue parking lot across from the Armory",
+                        "title": "Paper spot",
                         "type": "paper"
                     },
                     "geometry": {
