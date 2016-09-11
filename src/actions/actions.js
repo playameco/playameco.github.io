@@ -126,17 +126,17 @@ export function getMaterialsList(){
 	 	    	]
 	 	    },
 	 	    {
-	 	    	name: 'aluminun',
+	 	    	name: 'aluminum',
 	 	    	types: [
 	 	    		{
-	 	    			type: 'Aluminun Cans',
+	 	    			type: 'Aluminum Cans',
 	 	    			description: dummyText,
 	 	    			tutorial: [
 	 	    				''
 	 	    			]
 	 	    		},
 	 	    		{
-	 	    			type: 'Aluminun Foil',
+	 	    			type: 'Aluminum Foil',
 	 	    			description: dummyText,
 	 	    			tutorial: [
 	 	    				''
