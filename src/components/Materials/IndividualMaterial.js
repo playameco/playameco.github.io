@@ -10,6 +10,7 @@ class IndividualMaterial extends Component {
   }
   render() {
     var description = this.props.description[0].description;
+    console.log(description)
     return (
       <div className='sections'>
         <p>{description}</p>

@@ -19,7 +19,8 @@
     .main-row
         display: flex
         justify-content: space-around
-    > h1
+    h1,
+    p
         text-align: center
     section
         border: 1px solid $light-gray
@@ -38,11 +39,17 @@
     button
         display: block
         background: $soft-green
+        border: 2px solid darken($soft-green, 15%)
         border-radius: 10px
         margin: 20px auto
         padding: 5px 10px
         font-size: 20px
         text-align: center
+        color: white
+        transition: all .3s ease
+        &:hover
+            background: darken($soft-green, 5%)
+            box-shadow: 0 0 10px darken($light-gray, 10%)
 
 .placeholder
     background-image: url('../images/placeholder.png')

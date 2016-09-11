@@ -28,7 +28,7 @@ class ReuseSection extends Component {
               <h3>Amy Knight</h3>
               <p>
                 Look at how I reused this <strong>#{this.state.material}</strong>. 
-                Why throw stuff away, when it can be this beatiful? <strong>#emEco</strong>
+                Why throw stuff away, when it can be this beatiful? <strong>#amEco</strong>
               </p>
               <i className="fa fa-retweet" aria-hidden="true"></i> 134
               <i className="fa fa-heart" aria-hidden="true"></i> 173
@@ -39,8 +39,7 @@ class ReuseSection extends Component {
             <div className='social-text-area'>
               <h3>Gwen Faraday</h3>
               <p>
-                Look at how I reused this <strong>#{this.state.material}</strong>. 
-                Why throw stuff away, when it can be this beatiful? <strong>#emEco</strong>
+                So many ways to reuse <strong>#{this.state.material}</strong>!!! <strong>#amEco</strong>
               </p>
               <i className="fa fa-retweet" aria-hidden="true"></i> 20
               <i className="fa fa-heart" aria-hidden="true"></i> 55
@@ -51,8 +50,8 @@ class ReuseSection extends Component {
             <div className='social-text-area'>
               <h3>Jared Wilcurt</h3>
               <p>
-                Look at how I reused this <strong>#{this.state.material}</strong>. 
-                Why throw stuff away, when it can be this beatiful? <strong>#emEco</strong>
+                See at how I reused this <strong>#{this.state.material}</strong>. 
+                Junk isn't always Junk! <strong>#amEco</strong>
               </p>
               <i className="fa fa-retweet" aria-hidden="true"></i> 12
               <i className="fa fa-heart" aria-hidden="true"></i> 23
@@ -64,7 +63,7 @@ class ReuseSection extends Component {
               <h3>Kim Sharpe</h3>
               <p>
                 Look at how I reused this <strong>#{this.state.material}</strong>. 
-                Why throw stuff away, when it can be this beatiful? <strong>#emEco</strong>
+                Why throw stuff away, when it can be this beatiful? <strong>#amEco</strong>
               </p>
               <i className="fa fa-retweet" aria-hidden="true"></i> 4
               <i className="fa fa-heart" aria-hidden="true"></i> 11
