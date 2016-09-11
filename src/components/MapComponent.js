@@ -17,7 +17,7 @@ class MapComponent extends React.Component {
                 Store.dispatch(initMap(location, markers))
             })
         }).catch(() => {
-
+            console.log("reject");
         });
     }
 

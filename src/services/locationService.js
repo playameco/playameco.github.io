@@ -7,8 +7,17 @@ export function getCurrentLocation(){
             navigator.geolocation.getCurrentPosition(resolve);
         }
         else {
-            reject(null);
+            resolve({
+                location:{
+                    coords:{
+                        latitude:40.4049599,
+                        longitude: -86.9282559
+                    }
+                }
+            });
         }
+
+        reject();
     });
 }
 
