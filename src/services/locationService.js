@@ -6,14 +6,14 @@ export function getCurrentLocation(){
         if (navigator.geolocation) {
             navigator.geolocation.getCurrentPosition(resolve);
         }else {
-            reject(Error({
+            throw {
                 location: {
                     coords: {
                         latitude: 40.4049599,
                         longitude: -86.9282559
                     }
                 }
-            }));
+            };
         }
 
     });
