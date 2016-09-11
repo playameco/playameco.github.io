@@ -62,8 +62,8 @@ class ReuseSection extends Component {
             <div className='social-text-area'>
               <h3>Kim Sharpe</h3>
               <p>
-                Look at how I reused this <strong>#{this.state.material}</strong>. 
-                Why throw stuff away, when it can be this beatiful? <strong>#amEco</strong>
+                See how I reused this <strong>#{this.state.material}</strong>. 
+                <strong>#amEco</strong>
               </p>
               <i className="fa fa-retweet" aria-hidden="true"></i> 4
               <i className="fa fa-heart" aria-hidden="true"></i> 11
