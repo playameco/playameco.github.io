@@ -35,7 +35,7 @@ class ReuseSection extends Component {
             </div>
           </li>
           <li className='social-feed-item'>
-            <div className='dummy-image'></div>
+            <div className='dummy-image placehoder'></div>
             <div className='social-text-area'>
               <h3>Gwen Faraday</h3>
               <p>
@@ -46,7 +46,7 @@ class ReuseSection extends Component {
             </div>
           </li>
           <li className='social-feed-item'>
-            <div className='dummy-image'></div>
+            <div className='dummy-image placehoder'></div>
             <div className='social-text-area'>
               <h3>Jared Wilcurt</h3>
               <p>
@@ -58,7 +58,7 @@ class ReuseSection extends Component {
             </div>
           </li>
           <li className='social-feed-item'>
-            <div className='dummy-image'></div>
+            <div className='dummy-image placehoder'></div>
             <div className='social-text-area'>
               <h3>Kim Sharpe</h3>
               <p>
