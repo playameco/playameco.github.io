@@ -7,7 +7,7 @@ export function getCurrentLocation(){
             navigator.geolocation.getCurrentPosition(resolve);
         }
         else {
-            reject(Error("Browser doesn't support location service"));
+            reject(null);
         }
     });
 }
