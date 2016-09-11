@@ -1,9 +1,10 @@
 .reduce-section
-	width: 90%
+	width: 80%
 	margin: 50px auto
 	display: flex
 	justify-content: space-around
 	flex-wrap: wrap
+	align-items: center
 	.reduce-affiliate
 		width: 400px
 		margin-bottom: 30px
@@ -12,6 +13,10 @@
 			height: auto
 			border: 2px solid $light-gray
 			border-radius: 10px
+			transition: all .5s ease
+			&:hover
+				transform: scale(1.05)
+				cursor: pointer
 
 .sections.reduce
 	width: 90%
