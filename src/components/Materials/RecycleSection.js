@@ -17,8 +17,8 @@ class RecycleSection extends Component {
   }
   render() {
     return (
-      <div className='sections'>
-        <h1>Recycle {this.state.material.replace(this.state.material[0], this.state.material[0].toUpperCase())}</h1>
+      <div className="recycle-section">
+        <h1>Locations to recycle {this.state.material.replace(this.state.material[0], this.state.material[0].toUpperCase())}</h1>
         <MapComponent />
       </div>
     );
