@@ -16,8 +16,6 @@ export function getCurrentLocation(){
                 }
             });
         }
-
-        reject();
     });
 }
 
