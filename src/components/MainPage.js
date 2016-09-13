@@ -55,6 +55,8 @@ class ExampleComponent1 extends Component {
 	                      clearable={false}
 	                      options={optionsArray}
 	                      searchable={true}
+	                      autofocus={true}
+	                      placeholder='Choose a Material...'
 	                      onChange={this.chooseMaterial.bind(this)}
 	                  />
 			        <h1>?</h1>

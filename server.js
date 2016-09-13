@@ -1,6 +1,7 @@
-const path = require('path')
-const express = require('express')
+const path = require('path');
+const express = require('express');
 
+//server set-up
 const Server = {
   app: function () {
     const app = express()
@@ -12,12 +13,20 @@ const Server = {
 
     return app
   }
-}
-
-
+};
 const port = process.env.PORT || 3000;
 const app = Server.app();
 
+//middleware - passport authentication
+const passport = require('passport');
+app.post('/login',
+  passport.authenticate('local', { successRedirect: '/',
+                                   failureRedirect: '/login',
+                                   failureFlash: true })
+);
+
+
+//webpack config
 if (process.env.NODE_ENV !== 'production') {
   const webpack = require('webpack')
   const webpackDevMiddleware = require('webpack-dev-middleware')

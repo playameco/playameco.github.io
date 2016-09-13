@@ -7,6 +7,7 @@
 MVP Features List:
 
 * [ ] Login
+* [ ] Add text content (descriptions) for all recyclable materials to show on 'Learn Page'
 * [ ] SQL Database Setup
 * [ ] User Dashboard - Amici collections and accessories, points, settings...
 * [ ] Point System
