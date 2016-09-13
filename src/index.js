@@ -15,8 +15,7 @@ import RecycleSection from './components/Materials/RecycleSection'
 import ReuseSection from './components/Materials/ReuseSection'
 import ReduceSection from './components/Materials/ReduceSection'
 
-import Login from './components/Login/Login'
-import Register from './components/Login/Register'
+import Login from './components/Login/LoginMain'
 import Dashboard from './components/Login/Dashboard'
 
 import 'react-select/dist/react-select.css';
@@ -29,7 +28,6 @@ ReactDOM.render(
 			<Route component={App}>
 				<Route path='/' component={MainPage} />
 				<Route path='/login' component={Login}/>
-				<Route path='/register' component={Register}/>
 				<Route path='/dashboard' component={Dashboard}/>
 				<Route path='/materials' component={MaterialMainPage}/>
 				<Route path='/materials/learn' component={LearnSection} />
