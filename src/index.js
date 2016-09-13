@@ -15,6 +15,10 @@ import RecycleSection from './components/Materials/RecycleSection'
 import ReuseSection from './components/Materials/ReuseSection'
 import ReduceSection from './components/Materials/ReduceSection'
 
+import Login from './components/Login/Login'
+import Register from './components/Login/Register'
+import Dashboard from './components/Login/Dashboard'
+
 import 'react-select/dist/react-select.css';
 import 'bootstrap/dist/css/bootstrap.css';
 import './styles/app.sass';
@@ -24,6 +28,9 @@ ReactDOM.render(
 		<Router history={hashHistory}>
 			<Route component={App}>
 				<Route path='/' component={MainPage} />
+				<Route path='/login' component={Login}/>
+				<Route path='/register' component={Register}/>
+				<Route path='/dashboard' component={Dashboard}/>
 				<Route path='/materials' component={MaterialMainPage}/>
 				<Route path='/materials/learn' component={LearnSection} />
 				<Route path='/materials/recycle' component={RecycleSection} />
