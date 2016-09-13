@@ -59,6 +59,9 @@ class ExampleComponent1 extends Component {
 	                  />
 			        <h1>?</h1>
 				</div>
+				<div id='survey'>
+					<a href="https://docs.google.com/forms/d/e/1FAIpQLSf_hhL8G5ik71rHZFiHDAGKdMv7-30K_gKk74vYFA0CbgXWBA/viewform?usp=send_form">Take our 3 question survey and be<br />the first to know when we launch!</a>
+				</div>
 				<Leaderboard />
 			</div>
 			)
