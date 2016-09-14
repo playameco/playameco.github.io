@@ -42,14 +42,14 @@ export default class Login extends Component {
 		          <form action="/" method="post">
 
 		            <div className="field-wrap">
-		            <label style={{display: this.state.showEmailLabel ? 'block' : 'none'}}>
+		            <label className={this.state.showEmailLabel ? '' : 'active highlight'}>
 		              Email Address<span className="req">*</span>
 		            </label>
 		            <input ref='email' onKeyUp={this.toggleEmailLabel.bind(this)} type="email" required autoComplete="off"/>
 		          </div>
 
 		          <div className="field-wrap">
-		            <label style={{display: this.state.showPwdLabel ? 'block' : 'none'}}>
+		            <label className={this.state.showPwdLabel ? '' : 'active highlight'}>
 		              Password<span className="req">*</span>
 		            </label>
 		            <input ref='pwd' onKeyUp={this.togglePwdLabel.bind(this)} type="password" required autoComplete="off"/>

@@ -4,10 +4,8 @@ $body-bg: #c1bdba
 $form-bg: #13232f
 $white: #ffffff
 
-// $main: #1ab188
-$main: $light-blue
-$main-light: lighten($main,5%)
-$main-dark: darken($main,5%)
+$main-light: lighten($light-blue,5%)
+$main-dark: darken($light-blue,5%)
 
 $gray-light: #a0b3b0
 $gray: #ddd
@@ -20,7 +18,7 @@ $br: 4px
 #login-components
   a
     text-decoration:none
-    color: $main
+    color: $light-blue
     transition: .5s ease
     &:hover
       color: $main-dark
@@ -61,7 +59,7 @@ $br: 4px
         color: $white
 
     .active a
-      background: $main
+      background: $light-blue
       color: $white
 
 
@@ -88,11 +86,11 @@ $br: 4px
     font-size: 22px
     .req
     	margin: 2px
-    	color: $main
+    	color: $light-blue
 
 
   label.active
-    transform: translateY(50px)
+    transform: translateY(-20px)
     left: 2px
     font-size: 14px
     .req
@@ -117,7 +115,7 @@ $br: 4px
     transition: border-color .25s ease, box-shadow .25s ease
     &:focus
   		outline: 0
-  		border-color: $main
+  		border-color: $light-blue
 
 
   textarea
@@ -153,7 +151,7 @@ $br: 4px
     font-weight: $bold
     text-transform: uppercase
     letter-spacing: .1em
-    background: $main
+    background: $light-blue
     color: $white
     transition: all.5s ease
     -webkit-appearance: none

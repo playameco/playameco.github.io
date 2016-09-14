@@ -55,21 +55,21 @@ export default class SignUp extends Component {
 		          <form action="/" method="post">
 
 		            <div className="field-wrap">
-		              <label style={{display: this.state.showNameLabel ? 'block' : 'none'}}>
+		              <label className={this.state.showNameLabel ? '' : 'active highlight'}>
 		                Name<span className="req">*</span>
 		              </label>
 		              <input ref='name' type="text" onKeyUp={this.toggleNameLabel.bind(this)} required autoComplete="off" />
 		            </div>
 
 		          <div className="field-wrap">
-		            <label style={{display: this.state.showEmailLabel ? 'block' : 'none'}}>
+		            <label className={this.state.showEmailLabel ? '' : 'active highlight'}>
 		              Email Address<span className="req">*</span>
 		            </label>
 		            <input ref='email' type="email" onKeyUp={this.toggleEmailLabel.bind(this)} required autoComplete="off"/>
 		          </div>
 
 		          <div className="field-wrap">
-		            <label style={{display: this.state.showPwdLabel ? 'block' : 'none'}}>
+		            <label className={this.state.showPwdLabel ? '' : 'active highlight'}>
 		              Set A Password<span className="req">*</span>
 		            </label>
 		            <input ref='pwd' type="password" onKeyUp={this.togglePwdLabel.bind(this)} required autoComplete="off"/>

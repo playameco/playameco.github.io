@@ -11,7 +11,7 @@ export default class App extends Component {
 		      </Link>
 		      <div>
 			    <Link to='/'>Home</Link>
-			    <Link to='/example'>Learn more about earning points</Link>
+			    <Link to='/example'>About</Link>
 			    <Link to='/login'>Login</Link>
 		      </div>
 	        </div>
