@@ -2,6 +2,8 @@ import React, { Component } from 'react'
 import { connect } from 'react-redux'
 import MapComponent from '../MapComponent.js'
 
+// Todo: add back button with function `browserHistory.goBack()`
+
 class RecycleSection extends Component {
   constructor(){
     super();
