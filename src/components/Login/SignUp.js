@@ -2,6 +2,51 @@ import React, { Component } from 'react'
 import { Link } from 'react-router'
 
 export default class SignUp extends Component {
+	constructor(){
+		super();
+		this.state = {
+			showEmailLabel: true,
+			showPwdLabel: true,
+			showNameLabel: true
+		}
+	}
+
+	//why am I setting state every time there is a keypress????
+	//why do I have 3 different functions to do the same thing
+	//TODO: these two functions need to be cleaned up:
+	togglePwdLabel(){
+		if (this.refs.pwd.value.length > 0){
+			this.setState({
+				showPwdLabel: false
+			})
+		} else {
+			this.setState({
+				showPwdLabel: true
+			})
+		}
+	}
+	toggleEmailLabel(){
+		if (this.refs.email.value.length > 0){
+			this.setState({
+				showEmailLabel: false
+			})
+		} else {
+			this.setState({
+				showEmailLabel: true
+			})
+		}
+	}
+	toggleNameLabel(){
+		if (this.refs.name.value.length > 0){
+			this.setState({
+				showNameLabel: false
+			})
+		} else {
+			this.setState({
+				showNameLabel: true
+			})
+		}
+	}
   render () {
     return (
     		<div id="signup-form">
@@ -9,34 +54,25 @@ export default class SignUp extends Component {
 
 		          <form action="/" method="post">
 
-		          <div className="top-row">
 		            <div className="field-wrap">
-		              <label>
-		                First Name<span className="req">*</span>
+		              <label style={{display: this.state.showNameLabel ? 'block' : 'none'}}>
+		                Name<span className="req">*</span>
 		              </label>
-		              <input type="text" required autoComplete="off" />
+		              <input ref='name' type="text" onKeyUp={this.toggleNameLabel.bind(this)} required autoComplete="off" />
 		            </div>
-
-		            <div className="field-wrap">
-		              <label>
-		                Last Name<span className="req">*</span>
-		              </label>
-		              <input type="text"required autoComplete="off"/>
-		            </div>
-		          </div>
 
 		          <div className="field-wrap">
-		            <label>
+		            <label style={{display: this.state.showEmailLabel ? 'block' : 'none'}}>
 		              Email Address<span className="req">*</span>
 		            </label>
-		            <input type="email"required autoComplete="off"/>
+		            <input ref='email' type="email" onKeyUp={this.toggleEmailLabel.bind(this)} required autoComplete="off"/>
 		          </div>
 
 		          <div className="field-wrap">
-		            <label>
+		            <label style={{display: this.state.showPwdLabel ? 'block' : 'none'}}>
 		              Set A Password<span className="req">*</span>
 		            </label>
-		            <input type="password"required autoComplete="off"/>
+		            <input ref='pwd' type="password" onKeyUp={this.togglePwdLabel.bind(this)} required autoComplete="off"/>
 		          </div>
 
 		          <button type="submit" className="button button-block">Get Started</button>

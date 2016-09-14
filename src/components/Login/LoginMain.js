@@ -16,6 +16,8 @@ export default class LoginMain extends Component {
 		})
 	}
   render () {
+  	//TODO: need to fix
+  	//I shouldn't be toggle exactly like this because if someone hits one button twice it changes to opposite tab
   	var componentToDisplay = '';
   	if (this.state.displayLogin){
   		componentToDisplay = <Login />

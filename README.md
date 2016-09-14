@@ -20,4 +20,7 @@ MVP Features List:
 
 Version 2+ Features:
 
+* [ ] Text box tutorial series for site and app (swiping screens for mobile)
 * [ ] Recycling pick-up features
+* [ ] Micro-games
+* [ ] Mobile App - React Native

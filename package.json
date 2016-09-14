@@ -41,6 +41,8 @@
     "jquery": "^3.1.0",
     "json-loader": "^0.5.4",
     "passport": "^0.3.2",
+    "passport-facebook": "^2.1.1",
+    "passport-google-oauth": "^1.0.0",
     "react": "^0.14.6",
     "react-dom": "^0.14.6",
     "react-fontawesome": "^1.1.0",
