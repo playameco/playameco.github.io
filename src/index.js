@@ -1,7 +1,9 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
 import App from './App';
-import {Route, Router, IndexRoute, hashHistory} from 'react-router';
+import {Route, Router, IndexRoute, useRouterHistory, browserHistory} from 'react-router';
+import { createHashHistory } from 'history'
+const appHistory = useRouterHistory(createHashHistory)({ queryKey: false });
 
 import {Provider} from 'react-redux';
 import { store, dispatch } from './store/store'
@@ -24,7 +26,7 @@ import './styles/app.sass';
 
 ReactDOM.render(
 	<Provider store={store}>
-		<Router history={hashHistory}>
+		<Router history={browserHistory}>
 			<Route component={App}>
 				<Route path='/' component={MainPage} />
 				<Route path='/login' component={Login}/>

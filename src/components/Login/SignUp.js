@@ -13,7 +13,7 @@ export default class SignUp extends Component {
 
 	//why am I setting state every time there is a keypress????
 	//why do I have 3 different functions to do the same thing
-	//TODO: these two functions need to be cleaned up:
+	//TODO: these three functions need to be cleaned up:
 	togglePwdLabel(){
 		if (this.refs.pwd.value.length > 0){
 			this.setState({
@@ -52,7 +52,7 @@ export default class SignUp extends Component {
     		<div id="signup-form">
 		          <h1>Sign Up for Free</h1>
 
-		          <form action="/" method="post">
+		          <form action="/signup" method="post">
 
 		            <div className="field-wrap">
 		              <label className={this.state.showNameLabel ? '' : 'active highlight'}>

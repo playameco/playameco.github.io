@@ -17,6 +17,10 @@ const Server = {
 const port = process.env.PORT || 3000;
 const app = Server.app();
 
+// app.get('*', function (request, response){
+//   response.sendFile(path.resolve(__dirname, 'index.html'))
+// })
+
 //middleware - passport authentication
 const passport = require('passport');
 app.post('/login',

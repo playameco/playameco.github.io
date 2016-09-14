@@ -11,6 +11,7 @@ MVP Features List:
 * [ ] SQL Database Setup
 * [ ] User Dashboard - Amici collections and accessories, points, settings...
 * [ ] Point System
+* [ ] Remove hashes from URL
 * [ ] Amici collection system
 * [ ] Recycle locations should be live
 * [ ] Reduce section should show actual, useful links

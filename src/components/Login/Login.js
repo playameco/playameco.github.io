@@ -39,7 +39,7 @@ export default class Login extends Component {
     		<div id="login-form">
 		          <h1>Welcome Back!</h1>
 
-		          <form action="/" method="post">
+		          <form action="/login" method="post">
 
 		            <div className="field-wrap">
 		            <label className={this.state.showEmailLabel ? '' : 'active highlight'}>
@@ -55,7 +55,7 @@ export default class Login extends Component {
 		            <input ref='pwd' onKeyUp={this.togglePwdLabel.bind(this)} type="password" required autoComplete="off"/>
 		          </div>
 
-		          <p className="forgot"><a href="#">Forgot Password?</a></p>
+		          <p className="forgot"><a>Forgot Password?</a></p>
 
 		          <button className="button button-block">Log In</button>
 
