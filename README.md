@@ -16,6 +16,7 @@ MVP Features List:
 * [ ] Reduce section should show actual, useful links
 * [ ] Reuse section should show feeds from social media with hashtags
 * [ ] Ability for users add new recycle locations
+* [ ] Nice to have: connect in to OpenStreetMap to get that info into the open data ecosystem.
 * [ ] Ability to verify recycle locations
 
 Version 2+ Features:
