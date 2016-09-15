@@ -1,7 +1,29 @@
 import React, { Component } from 'react'
 import { Link } from 'react-router'
+import auth from './components/Login/auth'
 
 export default class App extends Component {
+	constructor() {
+		super();
+	    this.state = {
+	        loggedIn: auth.loggedIn()
+	    }
+    }
+
+    logOut(){
+    	auth.logout();
+    }
+
+	updateAuth(loggedIn) {
+	    this.setState({
+	        loggedIn: !!loggedIn
+	    })
+	}
+
+	componentWillMount() {
+	    auth.onChange = this.updateAuth.bind(this);
+	    auth.login()
+	}
   render () {
     return (
     	<div>
@@ -12,7 +34,11 @@ export default class App extends Component {
 		      <div>
 			    <Link to='/'>Home</Link>
 			    <Link to='/example'>About</Link>
-			    <Link to='/login'>Login</Link>
+	            {this.state.loggedIn ? (
+	                <a onClick={this.logOut.bind(this)}>Log out</a>
+	            ) : (
+	                <Link to="/login">Login</Link>
+	            )}
 		      </div>
 	        </div>
 	        {this.props.children}
@@ -20,5 +46,3 @@ export default class App extends Component {
     );
   }
 }
-
-// <img src='images/Ameca2-01.svg'/>

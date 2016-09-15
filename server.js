@@ -22,12 +22,12 @@ const app = Server.app();
 // })
 
 //middleware - passport authentication
-const passport = require('passport');
-app.post('/login',
-  passport.authenticate('local', { successRedirect: '/',
-                                   failureRedirect: '/login',
-                                   failureFlash: true })
-);
+// const passport = require('passport');
+// app.post('/login',
+//   passport.authenticate('local', { successRedirect: '/',
+//                                    failureRedirect: '/login',
+//                                    failureFlash: true })
+// );
 
 
 //webpack config

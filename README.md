@@ -7,11 +7,12 @@
 MVP Features List:
 
 * [ ] Login
+* [ ] Add Under Construction Label to home page
 * [ ] Add text content (descriptions) for all recyclable materials to show on 'Learn Page'
 * [ ] SQL Database Setup
 * [ ] User Dashboard - Amici collections and accessories, points, settings...
 * [ ] Point System
-* [ ] Remove hashes from URL
+* [x] Remove query params from URL
 * [ ] Amici collection system
 * [ ] Recycle locations should be live
 * [ ] Reduce section should show actual, useful links

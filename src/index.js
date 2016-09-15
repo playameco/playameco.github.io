@@ -18,7 +18,9 @@ import ReuseSection from './components/Materials/ReuseSection'
 import ReduceSection from './components/Materials/ReduceSection'
 
 import Login from './components/Login/LoginMain'
-import Dashboard from './components/Login/Dashboard'
+// import Dashboard from './components/Login/Dashboard'
+
+import routes from './routes'
 
 import 'react-select/dist/react-select.css';
 import 'bootstrap/dist/css/bootstrap.css';
@@ -26,18 +28,19 @@ import './styles/app.sass';
 
 ReactDOM.render(
 	<Provider store={store}>
-		<Router history={browserHistory}>
-			<Route component={App}>
-				<Route path='/' component={MainPage} />
-				<Route path='/login' component={Login}/>
-				<Route path='/dashboard' component={Dashboard}/>
-				<Route path='/materials' component={MaterialMainPage}/>
-				<Route path='/materials/learn' component={LearnSection} />
-				<Route path='/materials/recycle' component={RecycleSection} />
-				<Route path='/materials/reuse' component={ReuseSection} />
-				<Route path='/materials/reduce' component={ReduceSection} />
-				<Route path='/example' component={PointSystem} />
-			</Route>
+		<Router history={browserHistory} routes={routes}>
 		</Router>
 	</Provider>,
 	document.getElementById('root'));
+
+
+//<Route component={App}>
+//	<Route path='/' component={MainPage} />
+//	<Route path='/login' component={Login}/>
+//	<Route path='/materials' component={MaterialMainPage}/>
+//	<Route path='/materials/learn' component={LearnSection} />
+//	<Route path='/materials/recycle' component={RecycleSection} />
+//	<Route path='/materials/reuse' component={ReuseSection} />
+//	<Route path='/materials/reduce' component={ReduceSection} />
+//	<Route path='/example' component={PointSystem} />
+//</Route>

@@ -1,13 +1,34 @@
 import React, { Component } from 'react'
-import { Link } from 'react-router'
+import { Link, withRouter } from 'react-router'
+import auth from './auth'
 
-export default class Login extends Component {
+class Login extends Component {
 	constructor(){
 		super();
 		this.state = {
 			showEmailLabel: true,
-			showPwdLabel: true
+			showPwdLabel: true,
+			error: false
 		}
+	}
+	handleSubmit(event){
+	    event.preventDefault();
+
+	    const email = this.refs.email.value;
+	    const pwd = this.refs.pwd.value;
+
+	    auth.login(email, pwd, (loggedIn) => {
+	      if (!loggedIn)
+	        return this.setState({ error: true })
+
+	      const { location } = this.props
+
+	      if (location.state && location.state.nextPathname) {
+	        this.props.router.replace(location.state.nextPathname)
+	      } else {
+	        this.props.router.replace('/')
+	      }
+	    })
 	}
 
 	//why am I setting state every time there is a keypress????
@@ -39,7 +60,7 @@ export default class Login extends Component {
     		<div id="login-form">
 		          <h1>Welcome Back!</h1>
 
-		          <form action="/login" method="post">
+		          <form onSubmit={this.handleSubmit.bind(this)}>
 
 		            <div className="field-wrap">
 		            <label className={this.state.showEmailLabel ? '' : 'active highlight'}>
@@ -57,6 +78,10 @@ export default class Login extends Component {
 
 		          <p className="forgot"><a>Forgot Password?</a></p>
 
+		            {this.state.error && (
+			            <p className='login-error'>Invalid Login Information</p>
+			        )}
+
 		          <button className="button button-block">Log In</button>
 
 		          </form>
@@ -64,3 +89,5 @@ export default class Login extends Component {
     );
   }
 }
+
+export default withRouter(Login)
