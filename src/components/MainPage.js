@@ -26,9 +26,12 @@ class ExampleComponent1 extends Component {
 		var chosenMaterial = val.value;
 		this.setState({
 			chosenMaterial
-		})
+		});
 		localStorage.setItem('chosenMaterial', chosenMaterial)
-		browserHistory.push('/materials');
+		var item = localStorage.getItem('chosenMaterial'); //useless line just to push, need to delete
+		appHistory.push('/materials');
+		//TODO...
+		//more stuff
 		// this.props.dispatch(setCurrentMaterial(chosenMaterial))
 	}
 	componentWillMount(){
