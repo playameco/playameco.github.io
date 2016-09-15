@@ -40,6 +40,7 @@
     "express": "^4.14.0",
     "jquery": "^3.1.0",
     "json-loader": "^0.5.4",
+    "node-babel": "^0.1.2",
     "passport": "^0.3.2",
     "passport-facebook": "^2.1.1",
     "passport-google-oauth": "^1.0.0",

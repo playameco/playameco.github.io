@@ -1,5 +1,10 @@
 const path = require('path');
 const express = require('express');
+const React = require('react');
+const Router = require('react-router');
+
+// const routes = require('./src/routes.js')
+
 
 //server set-up
 const Server = {
@@ -10,6 +15,8 @@ const Server = {
 
     app.use('', publicPath)
     app.get('/', function (_, res) { res.sendFile(indexPath) })
+    // app.get('*', (req,res) => res.sendFile(indexPath))
+
 
     return app
   }
@@ -20,6 +27,12 @@ const app = Server.app();
 // app.get('*', function (request, response){
 //   response.sendFile(path.resolve(__dirname, 'index.html'))
 // })
+
+// app.use((req, res) => {
+//   Router.run(routes, req.path, (Handler) => {
+//     res.send(path.join(__dirname, './index.html'));
+//   });
+// });
 
 //middleware - passport authentication
 // const passport = require('passport');
