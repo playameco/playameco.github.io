@@ -4,9 +4,9 @@ import { getMaterialsList, setCurrentMaterial } from '../actions/actions'
 import Select from 'react-select'
 import auth from './Login/auth'
 
-// import { useRouterHistory } from 'react-router'
-// import { createHashHistory } from 'history'
-// const appHistory = useRouterHistory(createHashHistory)({ queryKey: false });
+import { useRouterHistory } from 'react-router'
+import { createHashHistory } from 'history'
+const appHistory = useRouterHistory(createHashHistory)({ queryKey: false });
 import { browserHistory } from 'react-router'
 
 import LearnSection from './Materials/LearnSection'
@@ -29,7 +29,7 @@ class Dashboard extends Component {
 			chosenMaterial
 		})
 		localStorage.setItem('chosenMaterial', chosenMaterial)
-		browserHistory.push('/materials');
+		appHistory.push('/materials');
 		// this.props.dispatch(setCurrentMaterial(chosenMaterial))
 	}
 	componentWillMount(){

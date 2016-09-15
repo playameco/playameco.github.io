@@ -88,7 +88,7 @@ export default {
         { path: '/login',
           getComponent: (nextState, cb) => {
             require.ensure([], (require) => {
-              cb(null, require('./components/Login/Login').default)
+              cb(null, require('./components/Login/LoginMain').default)
             })
           }
         }

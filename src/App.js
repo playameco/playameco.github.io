@@ -1,5 +1,5 @@
 import React, { Component } from 'react'
-import { Link } from 'react-router'
+import { Link, browserHistory } from 'react-router'
 import auth from './components/Login/auth'
 
 export default class App extends Component {
@@ -12,6 +12,7 @@ export default class App extends Component {
 
     logOut(){
     	auth.logout();
+    	browserHistory.push('/');
     }
 
 	updateAuth(loggedIn) {
@@ -33,7 +34,7 @@ export default class App extends Component {
 		      </Link>
 		      <div>
 			    <Link to='/'>Home</Link>
-			    <Link to='/example'>About</Link>
+			    <Link to='/about'>About</Link>
 	            {this.state.loggedIn ? (
 	                <a onClick={this.logOut.bind(this)}>Log out</a>
 	            ) : (

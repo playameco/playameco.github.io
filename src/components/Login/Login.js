@@ -1,5 +1,5 @@
 import React, { Component } from 'react'
-import { Link, withRouter } from 'react-router'
+import { Link, withRouter, browserHistory } from 'react-router'
 import auth from './auth'
 
 class Login extends Component {
@@ -18,16 +18,17 @@ class Login extends Component {
 	    const pwd = this.refs.pwd.value;
 
 	    auth.login(email, pwd, (loggedIn) => {
-	      if (!loggedIn)
-	        return this.setState({ error: true })
+		    if (!loggedIn){
+		        return this.setState({ error: true })
+		    }
 
-	      const { location } = this.props
+	        // const { location } = this.props
 
-	      if (location.state && location.state.nextPathname) {
-	        this.props.router.replace(location.state.nextPathname)
-	      } else {
-	        this.props.router.replace('/')
-	      }
+	      // if (location.state && location.state.nextPathname) {
+	      //   this.props.router.replace(location.state.nextPathname)
+	      // } else {
+	        browserHistory.push('/')
+	      // }
 	    })
 	}
 
@@ -82,7 +83,7 @@ class Login extends Component {
 			            <p className='login-error'>Invalid Login Information</p>
 			        )}
 
-		          <button className="button button-block">Log In</button>
+		          <button type='submit' className="button button-block">Log In</button>
 
 		          </form>
 	        </div>
@@ -90,4 +91,4 @@ class Login extends Component {
   }
 }
 
-export default withRouter(Login)
+export default Login
