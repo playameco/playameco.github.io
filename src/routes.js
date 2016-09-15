@@ -33,6 +33,54 @@ export default {
       }
     },
 
+    { path: '/materials',
+      getComponent: (nextState, cb) => {
+        require.ensure([], (require) => {
+          cb(null, require('./components/Materials/MaterialMainPage').default)
+        })
+      }
+    },
+
+    { path: '/materials/learn',
+      getComponent: (nextState, cb) => {
+        require.ensure([], (require) => {
+          cb(null, require('./components/Materials/LearnSection').default)
+        })
+      }
+    },
+
+    { path: '/materials/recycle',
+      getComponent: (nextState, cb) => {
+        require.ensure([], (require) => {
+          cb(null, require('./components/Materials/RecycleSection').default)
+        })
+      }
+    },
+
+    { path: '/materials/reuse',
+      getComponent: (nextState, cb) => {
+        require.ensure([], (require) => {
+          cb(null, require('./components/Materials/ReuseSection').default)
+        })
+      }
+    },
+
+    { path: '/materials/reduce',
+      getComponent: (nextState, cb) => {
+        require.ensure([], (require) => {
+          cb(null, require('./components/Materials/ReduceSection').default)
+        })
+      }
+    },
+
+    { path: '/about',
+      getComponent: (nextState, cb) => {
+        require.ensure([], (require) => {
+          cb(null, require('./components/PointSystem').default)
+        })
+      }
+    },
+
     { onEnter: redirectToDashboard,
       childRoutes: [
         // Unauthenticated routes

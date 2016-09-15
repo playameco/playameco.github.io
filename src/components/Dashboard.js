@@ -49,6 +49,7 @@ class Dashboard extends Component {
 		}
 		return (
 			<div className='main-page-component user-dashboard'>
+				<h1 style={{textAlign: 'center'}}>Welcome Back</h1>
 				<div className='main-page-question'>
 					<h1>What do I do with</h1>
 					<Select
