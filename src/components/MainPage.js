@@ -28,7 +28,7 @@ class ExampleComponent1 extends Component {
 			chosenMaterial
 		})
 		localStorage.setItem('chosenMaterial', chosenMaterial)
-		appHistory.push('/materials');
+		browserHistory.push('/materials');
 		// this.props.dispatch(setCurrentMaterial(chosenMaterial))
 	}
 	componentWillMount(){
