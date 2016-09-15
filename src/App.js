@@ -35,11 +35,7 @@ export default class App extends Component {
 		      <div>
 			    <Link to='/'>Home</Link>
 			    <Link to='/about'>About</Link>
-	            {this.state.loggedIn ? (
-	                <Link onClick={this.logOut.bind(this)}>Log out</Link>
-	            ) : (
-	                <Link to="/login">Login</Link>
-	            )}
+	            
 		      </div>
 	        </div>
 	        {this.props.children}
