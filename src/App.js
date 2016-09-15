@@ -1,6 +1,9 @@
 import React, { Component } from 'react'
-import { Link, browserHistory } from 'react-router'
 import auth from './components/Login/auth'
+
+import {Link,useRouterHistory, browserHistory} from 'react-router';
+import { createHashHistory } from 'history'
+const appHistory = useRouterHistory(createHashHistory)({ queryKey: false });
 
 export default class App extends Component {
 	constructor() {
@@ -12,7 +15,7 @@ export default class App extends Component {
 
     logOut(){
     	auth.logout();
-    	browserHistory.push('/');
+    	appHistory.push('/');
     }
 
 	updateAuth(loggedIn) {
@@ -35,11 +38,7 @@ export default class App extends Component {
 		      <div>
 			    <Link to='/'>Home</Link>
 			    <Link to='/about'>About</Link>
-	            {this.state.loggedIn ? (
-	                <Link onClick={this.logOut.bind(this)}>Log out</Link>
-	            ) : (
-	                <Link to="/login">Login</Link>
-	            )}
+	            
 		      </div>
 	        </div>
 	        {this.props.children}
@@ -47,4 +46,10 @@ export default class App extends Component {
     );
   }
 }
-//test
+
+
+// {this.state.loggedIn ? (
+// 	                <Link onClick={this.logOut.bind(this)}>Log out</Link>
+// 	            ) : (
+// 	                <Link to="/login">Login</Link>
+// 	            )}

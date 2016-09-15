@@ -28,7 +28,7 @@ import './styles/app.sass';
 
 ReactDOM.render(
 	<Provider store={store}>
-		<Router history={browserHistory} routes={routes}>
+		<Router history={appHistory} routes={routes}>
 		</Router>
 	</Provider>,
 	document.getElementById('root'));
