@@ -1,10 +1,10 @@
 import { combineReducers } from 'redux'
-import exampleReducer from './exampleReducer'
+import usersReducer from './usersReducer'
 import materialsReducer from './materialsReducer'
 import mapReducer from './mapReducer'
 
 const appReducer = combineReducers({
-  exampleReducer,
+  usersReducer,
   materialsReducer,
   mapReducer
 })
