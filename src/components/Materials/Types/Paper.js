@@ -27,6 +27,19 @@ class Paper extends Component {
 					world’s paper would avoid the harvesting of 20 million acres (81,000 km²) of 
 					forestland.</p>
 
+				<h3>Types of Paper Recycling</h3>
+				<p>There are three categories of paper that can be used as feedstocks for making 
+					recycled paper: mill broke, pre-consumer waste, and post-consumer waste. Mill 
+					broke is paper trimmings and other paper scrap from the manufacture of paper, 
+					and is recycled internally in a paper mill. Pre-consumer waste is material which 
+					left the paper mill but was discarded before it was ready for consumer use. 
+					Post-consumer waste is material discarded after consumer use, such as old 
+					corrugated containers (OCC), old magazines, and newspapers. Paper suitable 
+					for recycling is called "scrap paper", often used to produce molded pulp packaging. 
+					The industrial process of removing printing ink from paperfibers of recycled 
+					paper to make deinked pulp is called deinking, an invention of the German jurist 
+					Justus Claproth.</p>
+
 				<h3>Process of Recyling Paper</h3>
 				<p>The process of waste paper recycling involves mixing used paper with water 
 					and chemicals to break it down. It is then chopped up and heated, which breaks 

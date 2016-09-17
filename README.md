@@ -12,6 +12,8 @@ MVP Features List:
 * [ ] SQL Database Setup
 * [ ] User Dashboard - Amici collections and accessories, points, settings...
 * [ ] Point System
+* [ ] Redesign Menu
+* [ ] Leaderboard should be fully functional
 * [x] Remove query params from URL
 * [ ] Amici collection system
 * [ ] Recycle locations should be live
