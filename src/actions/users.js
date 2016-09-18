@@ -46,6 +46,43 @@ var initUserPool = function(awsRegion, awsIdentityPoolId, awsUserPoolId, awsClie
 
 let currentUser = {}
 
+
+export function signUp(nickname, email, password){
+   var poolData = {
+        UserPoolId : constUserPoolId, // Your user pool id here
+        ClientId : constClientId // Your client id here
+    };
+    var userPool = new AWSCognito.CognitoIdentityServiceProvider.CognitoUserPool(poolData);
+
+    var attributeList = [];
+
+    var dataName = {
+        Name : 'nickname',
+        Value : nickname
+    };
+
+    var dataEmail = {
+        Name : 'email',
+        Value : email
+    };
+
+    var attributeEmail = new AWSCognito.CognitoIdentityServiceProvider.CognitoUserAttribute(dataEmail);
+    var attributePhoneNumber = new AWSCognito.CognitoIdentityServiceProvider.CognitoUserAttribute(dataPhoneNumber);
+
+    attributeList.push(attributeEmail);
+    attributeList.push(attributePhoneNumber);
+
+    userPool.signUp(nickname, password, attributeList, null, function(err, result){
+        if (err) {
+            alert(err);
+            return;
+        }
+        cognitoUser = result.user;
+        console.log('user name is ' + cognitoUser.getUsername());
+    });
+}
+
+
 export function login(username, password) {
 
   return function (dispatch) {
@@ -100,16 +137,15 @@ export function login(username, password) {
                 //Pull Cognito Dataset
                 var client = new AWS.CognitoSyncManager();
 
-                client.openOrCreateDataset('preferably', function(err, dataset) {
+                client.openOrCreateDataset('ameco-users', function(err, dataset) {
                 dataset.synchronize({
 
                   onSuccess: function(dataset, newRecords) {
-                     dataset.get('preferably', function(err, value) {
+                     dataset.get('ameco-users', function(err, value) {
                       if(err){
                         dispatch(loggedInError("No client associated with this account, please contact support."));
                       }
                       else{
-                        //console.log('preferably: ' + value);
                         if (value){
                           var data = JSON.parse(value);
                           dispatch(loggedIn(AWS.config.credentials.identityId, result.accessToken.jwtToken, data.clientId));

@@ -1,6 +1,9 @@
 import React, { Component } from 'react'
 import auth from './components/Login/auth'
 
+import { connect } from 'react-redux'
+import { checkSession } from './actions/users'
+
 import {Link,useRouterHistory, browserHistory} from 'react-router';
 import { createHashHistory } from 'history'
 const appHistory = useRouterHistory(createHashHistory)({ queryKey: false });
@@ -24,10 +27,9 @@ export default class App extends Component {
 	    })
 	}
 
-	componentWillMount() {
-	    // auth.onChange = this.updateAuth.bind(this);
-	    // auth.login()
-	}
+	// componentWillMount(){
+	//     this.props.dispatch(checkSession());
+	// }
   render () {
     return (
     	<div>
