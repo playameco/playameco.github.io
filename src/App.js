@@ -9,7 +9,7 @@ export default class App extends Component {
 	constructor() {
 		super();
 	    this.state = {
-	        loggedIn: auth.loggedIn()
+	        loggedIn: false
 	    }
     }
 
@@ -25,8 +25,8 @@ export default class App extends Component {
 	}
 
 	componentWillMount() {
-	    auth.onChange = this.updateAuth.bind(this);
-	    auth.login()
+	    // auth.onChange = this.updateAuth.bind(this);
+	    // auth.login()
 	}
   render () {
     return (
@@ -38,7 +38,11 @@ export default class App extends Component {
 		      <div>
 			    <Link to='/'>Home</Link>
 			    <Link to='/about'>About</Link>
-
+			    {this.state.loggedIn ? (
+	                <Link onClick={this.logOut.bind(this)}>Log out</Link>
+	            ) : (
+	                <Link to="/login">Login</Link>
+	            )}
 		      </div>
 	        </div>
 	        {this.props.children}
@@ -46,10 +50,3 @@ export default class App extends Component {
     );
   }
 }
-
-
-// {this.state.loggedIn ? (
-// 	                <Link onClick={this.logOut.bind(this)}>Log out</Link>
-// 	            ) : (
-// 	                <Link to="/login">Login</Link>
-// 	            )}

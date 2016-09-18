@@ -49,6 +49,8 @@ export function login(username, password) {
   return function (dispatch) {
     dispatch(loggingIn());
 
+    console.log(username, password)
+
     var userPool = initUserPool(constRegion,
               constIdentityPoolId,
               constUserPoolId,
