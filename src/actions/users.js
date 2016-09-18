@@ -55,7 +55,22 @@ export function signUp(nickname, email, password){
         UserPoolId : constUserPoolId, // Your user pool id here
         ClientId : constClientId // Your client id here
     };
-    var userPool = new AWSCognito.CognitoIdentityServiceProvider.CognitoUserPool(poolData);
+
+    var userPool = initUserPool(constRegion,
+              constIdentityPoolId,
+              constUserPoolId,
+              constClientId);
+    // var userPool = new AWSCognito.CognitoIdentityServiceProvider.CognitoUserPool(poolData);
+
+    AWS.config.region = constRegion;
+    AWS.config.credentials = new AWS.CognitoIdentityCredentials({
+            IdentityPoolId: constIdentityPoolId
+        });
+
+    AWSCognito.config.region = constRegion;
+    AWSCognito.config.credentials = new AWS.CognitoIdentityCredentials({
+            IdentityPoolId: constIdentityPoolId
+        });
 
     var attributeList = [];
 
