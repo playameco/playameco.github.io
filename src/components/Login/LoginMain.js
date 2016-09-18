@@ -15,6 +15,16 @@ export default class LoginMain extends Component {
 			displayLogin: !this.state.displayLogin
 		})
 	}
+	setLoginDisplay(){
+		this.setState({
+			displayLogin: true
+		})
+	}
+	setSignUpDisplay(){
+		this.setState({
+			displayLogin: false
+		})
+	}
   render () {
   	//TODO: need to fix
   	//I shouldn't be toggle exactly like this because if someone hits one button twice it changes to opposite tab
@@ -29,8 +39,8 @@ export default class LoginMain extends Component {
     		<div className="form">
 
 		      <ul className="tab-group">
-		        <li className={this.state.displayLogin ? 'tab active' : 'tab'}><a onClick={this.changeDisplay.bind(this)}>Log In</a></li>
-		        <li className={!this.state.displayLogin ? 'tab active' : 'tab'}><a onClick={this.changeDisplay.bind(this)}>Sign Up</a></li>
+		        <li className={this.state.displayLogin ? 'tab active' : 'tab'}><a onClick={this.setLoginDisplay.bind(this)}>Log In</a></li>
+		        <li className={!this.state.displayLogin ? 'tab active' : 'tab'}><a onClick={this.setSignUpDisplay.bind(this)}>Sign Up</a></li>
 		      </ul>
 
 		      <div className="tab-content">
