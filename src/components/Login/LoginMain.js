@@ -2,6 +2,7 @@ import React, { Component } from 'react'
 import { Link } from 'react-router'
 import SignUp from './SignUp'
 import Login from './Login'
+// import Verify from './Verify'
 
 export default class LoginMain extends Component {
 	constructor(){
@@ -9,11 +10,6 @@ export default class LoginMain extends Component {
 		this.state = {
 			displayLogin: true
 		}
-	}
-	changeDisplay(){
-		this.setState({
-			displayLogin: !this.state.displayLogin
-		})
 	}
 	setLoginDisplay(){
 		this.setState({
@@ -26,8 +22,6 @@ export default class LoginMain extends Component {
 		})
 	}
   render () {
-  	//TODO: need to fix
-  	//I shouldn't be toggle exactly like this because if someone hits one button twice it changes to opposite tab
   	var componentToDisplay = '';
   	if (this.state.displayLogin){
   		componentToDisplay = <Login />

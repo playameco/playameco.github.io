@@ -28,7 +28,7 @@ class SignUp extends Component {
 			signUp(name, email, password)
 		)
 
-		appHistory.push('/')
+		appHistory.push('/verify')
 	}
 
 	//why am I setting state every time there is a keypress????
