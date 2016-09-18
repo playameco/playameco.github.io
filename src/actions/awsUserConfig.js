@@ -1,7 +1,7 @@
 module.exports = {
     constRegion: 'us-east-1',
-    constIdentityPoolId: 'us-east-1:a3a3f200-7f52-4673-a1af-dd3c3fcb5881',
-    constUserPoolId: 'us-east-1_fzlSAT9he',
-    constClientId: '6c1bfkf8o82b7p50vlas058lkh',
-    constCognitoProviderId: 'cognito-idp.us-east-1.amazonaws.com/us-east-1_fzlSAT9he'
+    constIdentityPoolId: 'us-east-1:fb7c2268-44be-4a7a-99ec-70ca68f11dbf',
+    constUserPoolId: 'us-east-1_PnfT3s7ia',
+    constClientId: '7kctvbf996uosa5b2j5b6nek9j'
+    // constCognitoProviderId: 'cognito-idp.us-east-1.amazonaws.com/us-east-1_fzlSAT9he'
 }
