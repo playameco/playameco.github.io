@@ -20,6 +20,13 @@ export const loggedInError = (error) => {
   }
 }
 
+export const signedUp = (username) => {
+  return {
+    type: 'SIGNED_UP',
+    username
+  }
+}
+
 export const loggingOut = () => {
   return {
     type: 'LOGGING_OUT'

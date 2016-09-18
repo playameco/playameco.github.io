@@ -1,10 +1,13 @@
 import React, { Component } from 'react'
-import { Link } from 'react-router'
+
+import { Link, useRouterHistory, browserHistory } from 'react-router';
+import { createHashHistory } from 'history'
+const appHistory = useRouterHistory(createHashHistory)({ queryKey: false });
 
 import { connect } from 'react-redux'
-import { signup } from '../../actions/users'
+import { signUp } from '../../actions/users'
 
-export default class SignUp extends Component {
+class SignUp extends Component {
 	constructor(){
 		super();
 		this.state = {
@@ -22,8 +25,10 @@ export default class SignUp extends Component {
 		var password = this.refs.pwd.value;
 
 		this.props.dispatch(
-			signup(name, email, password)
+			signUp(name, email, password)
 		)
+
+		appHistory.push('/')
 	}
 
 	//why am I setting state every time there is a keypress????
@@ -67,7 +72,7 @@ export default class SignUp extends Component {
     		<div id="signup-form">
 		          <h1>Sign Up for Free</h1>
 
-		          <form action={this.signUp.bind(this)}>
+		          <form onSubmit={this.signUp.bind(this)}>
 
 		            <div className="field-wrap">
 		              <label className={this.state.showNameLabel ? '' : 'active highlight'}>
@@ -98,3 +103,12 @@ export default class SignUp extends Component {
     );
   }
 }
+
+var mapStateToProps = function(state, ownProps){
+    return {
+    	materials: state.materialsReducer.materials,
+    	currentMaterial: state.materialsReducer.currentMaterial
+    };
+};
+SignUp = connect(state => (mapStateToProps), null)(SignUp);
+export default SignUp

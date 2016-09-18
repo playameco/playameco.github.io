@@ -19,6 +19,12 @@ const user = (state = {error:null,token:null,clientId:null, email:null, pwdUpdat
         clientId: action.clientId
       })
 
+    case 'SIGNED_UP':
+      return {
+        ...state,
+        username: action.username
+      }
+
     case 'LOGGING_OUT':
         return Object.assign({}, state, {
           token: '',

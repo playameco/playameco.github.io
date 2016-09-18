@@ -1,5 +1,5 @@
 import { constRegion, constIdentityPoolId, constUserPoolId, constClientId, constCognitoProviderId } from './awsUserConfig'
-import { passwordChangeSuccess, verificationCodeSent, sendVerificationCodeFailed, noUserInfoAvail, passwordChangeError, updatingPassword, clearingUserMessages, loggingIn, loggedIn, loggedInError, loggingOut, loggingOutError, loggedOut, checkingSession, checkingSessionError, checkedSession } from './actionGenerators/agUsers'
+import { signedUp, passwordChangeSuccess, verificationCodeSent, sendVerificationCodeFailed, noUserInfoAvail, passwordChangeError, updatingPassword, clearingUserMessages, loggingIn, loggedIn, loggedInError, loggingOut, loggingOutError, loggedOut, checkingSession, checkingSessionError, checkedSession } from './actionGenerators/agUsers'
 var browserHistory = require('react-router').browserHistory;
 
 // var AWS = require('aws-sdk');
@@ -48,7 +48,10 @@ let currentUser = {}
 
 
 export function signUp(nickname, email, password){
-   var poolData = {
+
+  return function (dispatch) {
+    dispatch(loggingIn());
+    var poolData = {
         UserPoolId : constUserPoolId, // Your user pool id here
         ClientId : constClientId // Your client id here
     };
@@ -67,19 +70,21 @@ export function signUp(nickname, email, password){
     };
 
     var attributeEmail = new AWSCognito.CognitoIdentityServiceProvider.CognitoUserAttribute(dataEmail);
-    var attributePhoneNumber = new AWSCognito.CognitoIdentityServiceProvider.CognitoUserAttribute(dataPhoneNumber);
+    var attributeName = new AWSCognito.CognitoIdentityServiceProvider.CognitoUserAttribute(dataName);
 
     attributeList.push(attributeEmail);
-    attributeList.push(attributePhoneNumber);
+    attributeList.push(attributeName);
 
     userPool.signUp(nickname, password, attributeList, null, function(err, result){
         if (err) {
-            alert(err);
+            console.log(err);
             return;
         }
         cognitoUser = result.user;
         console.log('user name is ' + cognitoUser.getUsername());
+        dispatch(signedUp(cognitoUser.getUsername()));
     });
+  }
 }
 
 
