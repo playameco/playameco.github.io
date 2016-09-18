@@ -51,16 +51,11 @@ export function signUp(nickname, email, password){
 
   return function (dispatch) {
     dispatch(loggingIn());
-    var poolData = {
-        UserPoolId : constUserPoolId, // Your user pool id here
-        ClientId : constClientId // Your client id here
-    };
 
     var userPool = initUserPool(constRegion,
               constIdentityPoolId,
               constUserPoolId,
               constClientId);
-    // var userPool = new AWSCognito.CognitoIdentityServiceProvider.CognitoUserPool(poolData);
 
     AWS.config.region = constRegion;
     AWS.config.credentials = new AWS.CognitoIdentityCredentials({
@@ -98,6 +93,30 @@ export function signUp(nickname, email, password){
         cognitoUser = result.user;
         console.log('user name is ' + cognitoUser.getUsername());
         dispatch(signedUp(cognitoUser.getUsername()));
+    });
+  }
+}
+
+export function confirmation(username, confirmCode){
+  return function (dispatch) {
+
+    var userPool = initUserPool(constRegion,
+              constIdentityPoolId,
+              constUserPoolId,
+              constClientId);
+
+    var userData = {
+        Username : username,
+        Pool : userPool
+    };
+
+    var cognitoUser = new AWSCognito.CognitoIdentityServiceProvider.CognitoUser(userData);
+    cognitoUser.confirmRegistration(confirmCode, true, function(err, result) {
+        if (err) {
+            alert(err);
+            return;
+        }
+        console.log('call result: ' + result);
     });
   }
 }
