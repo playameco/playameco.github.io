@@ -2,6 +2,8 @@ import { constRegion, constIdentityPoolId, constUserPoolId, constClientId, const
 import { passwordChangeSuccess, verificationCodeSent, sendVerificationCodeFailed, noUserInfoAvail, passwordChangeError, updatingPassword, clearingUserMessages, loggingIn, loggedIn, loggedInError, loggingOut, loggingOutError, loggedOut, checkingSession, checkingSessionError, checkedSession } from './actionGenerators/agUsers'
 var browserHistory = require('react-router').browserHistory;
 
+// var AWS = require('aws-sdk');
+
 // // Set the region where your identity pool exists (us-east-1, eu-west-1)
 // AWS.config.region = 'us-east-1';
 

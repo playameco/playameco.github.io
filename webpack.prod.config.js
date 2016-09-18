@@ -4,6 +4,8 @@ var ExtractTextPlugin = require('extract-text-webpack-plugin');
 var extractSASS = new ExtractTextPlugin('[name].sass');
 var extractCSS = new ExtractTextPlugin('[name].css');
 
+// var AWS_SDK_BUNDLE = 'aws-sdk/dist/aws-sdk.min.js';
+
 module.exports = {
   devtool: 'source-map',
 
@@ -16,6 +18,12 @@ module.exports = {
     filename: 'bundle.js',
     publicPath: '/dist/'
   },
+
+  // resolve: {
+  //   alias: {
+  //     'aws-sdk$': AWS_SDK_BUNDLE
+  //   }
+  // },
 
   plugins: [
     new webpack.optimize.DedupePlugin(),

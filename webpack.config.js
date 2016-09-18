@@ -4,6 +4,8 @@ var ExtractTextPlugin = require('extract-text-webpack-plugin');
 var extractSASS = new ExtractTextPlugin('[name].sass');
 var extractCSS = new ExtractTextPlugin('[name].css');
 
+// var AWS_SDK_BUNDLE = 'aws-sdk/dist/aws-sdk.min.js';
+
 module.exports = {
   devtool: 'eval',
   entry: [
@@ -14,6 +16,11 @@ module.exports = {
     filename: 'bundle.js',
     publicPath: '/dist/'
   },
+  // resolve: {
+  //   alias: {
+  //     'aws-sdk$': AWS_SDK_BUNDLE
+  //   }
+  // },
 
   plugins: [
     new webpack.HotModuleReplacementPlugin(),
@@ -21,7 +28,13 @@ module.exports = {
     extractCSS
   ],
   module: {
-    loaders: [{
+    // noParse: /aws-cognito-sdk/,
+    loaders: [
+    // {
+    //     test: require.resolve(AWS_SDK_BUNDLE),
+    //     loader: 'exports?AWSCognito'
+    // },
+    {
       test: /\.js$/,
       loaders: ['react-hot', 'babel'],
       include: path.join(__dirname, 'src')
