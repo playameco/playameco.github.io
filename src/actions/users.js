@@ -1,5 +1,5 @@
 import { constRegion, constIdentityPoolId, constUserPoolId, constClientId, constCognitoProviderId } from './awsUserConfig'
-import { signedUp, passwordChangeSuccess, verificationCodeSent, sendVerificationCodeFailed, noUserInfoAvail, passwordChangeError, updatingPassword, clearingUserMessages, loggingIn, loggedIn, loggedInError, loggingOut, loggingOutError, loggedOut, checkingSession, checkingSessionError, checkedSession } from './actionGenerators/agUsers'
+import { signingUp, signedUp, passwordChangeSuccess, verificationCodeSent, sendVerificationCodeFailed, noUserInfoAvail, passwordChangeError, updatingPassword, clearingUserMessages, loggingIn, loggedIn, loggedInError, loggingOut, loggingOutError, loggedOut, checkingSession, checkingSessionError, checkedSession } from './actionGenerators/agUsers'
 var browserHistory = require('react-router').browserHistory;
 
 // var AWS = require('aws-sdk');
@@ -50,7 +50,7 @@ let currentUser = {}
 export function signUp(nickname, email, password){
 
   return function (dispatch) {
-    dispatch(loggingIn());
+    dispatch(signingUp());
 
     var userPool = initUserPool(constRegion,
               constIdentityPoolId,
@@ -97,7 +97,7 @@ export function signUp(nickname, email, password){
   }
 }
 
-export function confirmation(username, confirmCode){
+export function verify(username, confirmCode){
   return function (dispatch) {
 
     var userPool = initUserPool(constRegion,

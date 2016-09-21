@@ -16,6 +16,13 @@ class SignUp extends Component {
 			showNameLabel: true
 		}
 	}
+//TODO: validation for AWS password requirements
+//regex designed to match password pattern of uppercase/lowercase, 8 characters, and number requirements
+	// var patt = new RegExp(/(?=^.{7,255}$)(?=.*\d)(?=[^A-Z]*[A-Z])(?=.*[^A-Za-z0-9])(.*)/);
+ //               if (patt.test(self.NewPassword()) == false) {
+ //                   self.ChangePasswordError('<p>Password must:</p><ul><li>be a minimum of seven(7) characters</li><li>contain at least one uppercase character (A-Z)</li><li>contain at least one numeric digit (0-9)</li><li>contain at least one special character (example: !,$,#,%)</li></ul>');
+ //                   return false;
+ //               }
 
 	signUp(e){
 		e.preventDefault();
@@ -27,6 +34,7 @@ class SignUp extends Component {
 		this.props.dispatch(
 			signUp(name, email, password)
 		)
+		localStorage.setItem('username', name);
 
 		appHistory.push('/verify')
 	}

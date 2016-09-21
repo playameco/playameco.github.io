@@ -5,7 +5,7 @@ import { createHashHistory } from 'history'
 const appHistory = useRouterHistory(createHashHistory)({ queryKey: false });
 
 import { connect } from 'react-redux'
-import { authenticationCode } from '../../actions/users'
+import { verify } from '../../actions/users'
 
 class Verify extends Component {
 	constructor(){
@@ -19,11 +19,11 @@ class Verify extends Component {
 	onSignUp(e){
 	    e.preventDefault();
 
-	    const email = this.refs.email.value;
-	    const pwd = this.refs.pwd.value;
+	    var code = this.refs.code.value;
+	    var username = localStorage.getItem('username');
 
 	    this.props.dispatch(
-	    	authenticationCode(username, code)
+	    	verify(username, code)
     	)
 
         appHistory.push('/')
@@ -55,7 +55,7 @@ class Verify extends Component {
 				            <label className={this.state.showCodeLabel ? '' : 'active highlight'}>
 				              Verification Code<span className="req">*</span>
 				            </label>
-				            <input ref='verify' onKeyUp={this.toggleCodeLabel.bind(this)} type="number" required autoComplete="off"/>
+				            <input ref='code' onKeyUp={this.toggleCodeLabel.bind(this)} type="number" required autoComplete="off"/>
 			            </div>
 
 			            <p className="forgot"><a>Resend Authentication Code</a></p>

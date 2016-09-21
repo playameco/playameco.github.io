@@ -7,10 +7,11 @@
 MVP Features List:
 
 * [ ] Login
-* [ ] Add Under Construction Label to home page
+* [ ] Add Under Construction Label to home page?
 * [ ] Add text content (descriptions) for all recyclable materials to show on 'Learn Page'
 * [ ] SQL Database Setup
 * [ ] User Dashboard - Amici collections and accessories, points, settings...
+* [ ] Add a contact page
 * [ ] Point System
 * [ ] Redesign Menu
 * [ ] Leaderboard should be fully functional

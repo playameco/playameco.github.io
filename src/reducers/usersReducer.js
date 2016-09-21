@@ -19,6 +19,11 @@ const user = (state = {error:null,token:null,clientId:null, email:null, pwdUpdat
         clientId: action.clientId
       })
 
+    case 'SIGNING_UP':
+      return {
+        ...state
+      }
+
     case 'SIGNED_UP':
       return {
         ...state,
