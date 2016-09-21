@@ -26,13 +26,13 @@ class Verify extends Component {
 	    	verify(username, code)
     	)
 
-        appHistory.push('/')
+        appHistory.replace('/dashboard')
 	}
 
 	//why am I setting state every time there is a keypress????
 	//TODO: these two functions need to be cleaned up:
 	toggleCodeLabel(){
-		if (this.refs.verify.value.length > 0){
+		if (this.refs.code.value.length > 0){
 			this.setState({
 				showPwdLabel: false
 			})

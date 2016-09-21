@@ -1,6 +1,7 @@
 import React, { Component } from 'react'
 import { connect } from 'react-redux'
 import { getMaterialsList, setCurrentMaterial } from '../actions/actions'
+import { checkSession } from '../actions/users'
 import Select from 'react-select'
 import auth from './Login/auth'
 
@@ -28,6 +29,7 @@ class Dashboard extends Component {
 		// this.props.dispatch(setCurrentMaterial(chosenMaterial))
 	}
 	componentWillMount(){
+	    this.props.dispatch(checkSession());
 		this.props.dispatch(getMaterialsList())
 	}
 	componentWillUpdate(){
