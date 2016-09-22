@@ -1,5 +1,5 @@
 import React, { Component } from 'react'
-import auth from './components/Login/auth'
+import { logout } from './actions/users'
 
 import { connect } from 'react-redux'
 import { checkSession } from './actions/users'
@@ -17,8 +17,10 @@ export default class App extends Component {
     }
 
     logOut(){
-    	auth.logout();
-    	appHistory.push('/');
+    	this.props.dispatch(
+    		logout()
+    	)
+    	appHistory.replace('/');
     }
 
 	updateAuth(loggedIn) {
