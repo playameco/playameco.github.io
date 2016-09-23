@@ -7,6 +7,9 @@ const appHistory = useRouterHistory(createHashHistory)({ queryKey: false });
 
 import {Provider} from 'react-redux';
 import { store, dispatch } from './store/store'
+import { routerReducer, syncHistoryWithStore, routerActions, routerMiddleware } from 'react-router-redux'
+import { UserAuthWrapper } from 'redux-auth-wrapper'
+import { UserIsAuthenticated, UserIsAdmin } from './utilities/routerWrappers'
 
 import MainPage from './components/MainPage'
 import About from './components/PointSystem'
@@ -23,7 +26,6 @@ import ForgotPassword from './components/Login/ForgotPassword'
 import PasswordReset from './components/Login/PasswordReset'
 import Verify from './components/Login/Verify'
 
-import routes from './routes'
 
 import 'react-select/dist/react-select.css';
 import 'bootstrap/dist/css/bootstrap.css';
@@ -44,7 +46,7 @@ ReactDOM.render(
 				<Route path='/verify' component={Verify} />
 				<Route path='/forgot-password' component={ForgotPassword} />
 				<Route path='/reset-password' component={PasswordReset} />
-				<Route path='/dashboard' component={Dashboard} />
+				<Route path='/dashboard' component={UserIsAuthenticated(Dashboard)} />
 			</Route>
 		</Router>
 	</Provider>,
