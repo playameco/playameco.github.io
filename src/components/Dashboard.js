@@ -70,9 +70,11 @@ class Dashboard extends Component {
 	}
 }
 var mapStateToProps = function(state, ownProps){
+	console.log('state from dash ', state)
     return {
     	materials: state.materialsReducer.materials,
-    	currentMaterial: state.materialsReducer.currentMaterial
+    	currentMaterial: state.materialsReducer.currentMaterial,
+    	users: state.users
     };
 };
 Dashboard = connect(state => (mapStateToProps), null)(Dashboard);

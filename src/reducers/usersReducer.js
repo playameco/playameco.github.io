@@ -75,15 +75,15 @@ const user = (state = {error:null,token:null,clientId:null, email:null, pwdUpdat
       })
 
 
-	case 'SEND_VERIFICATION_CODE_FAILED':
-       return Object.assign({}, state, {
-        error: action.error
-      })
+  	case 'SEND_VERIFICATION_CODE_FAILED':
+         return Object.assign({}, state, {
+          error: action.error
+        })
 
-	case 'NO_USER_INFO_AVAILABLE':
-       return Object.assign({}, state, {
-        error: action.error
-      })
+  	case 'NO_USER_INFO_AVAILABLE':
+         return Object.assign({}, state, {
+          error: action.error
+        })
 
     default:
         return Object.assign({}, state, {
