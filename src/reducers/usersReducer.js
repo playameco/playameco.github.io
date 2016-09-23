@@ -21,7 +21,9 @@ const user = (state = {error:null,token:null,clientId:null, email:null, pwdUpdat
 
     case 'SIGNING_UP':
       return {
-        ...state
+        ...state,
+        username: action.username,
+        email: action.email
       }
 
     case 'SIGNED_UP':

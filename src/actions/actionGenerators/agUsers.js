@@ -20,9 +20,11 @@ export const loggedInError = (error) => {
   }
 }
 
-export const signingUp = () => {
+export const signingUp = (username, email) => {
   return {
-    type: 'SIGNING_UP'
+    type: 'SIGNING_UP',
+    username,
+    email
   }
 }
 

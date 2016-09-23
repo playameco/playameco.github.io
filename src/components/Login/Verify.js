@@ -25,8 +25,7 @@ class Verify extends Component {
 	    this.props.dispatch(
 	    	verify(username, code)
     	)
-
-        appHistory.replace('/dashboard')
+    	appHistory.replace('/dashboard')
 	}
 
 	//why am I setting state every time there is a keypress????
@@ -77,7 +76,9 @@ class Verify extends Component {
 var mapStateToProps = function(state, ownProps){
     return {
     	materials: state.materialsReducer.materials,
-    	currentMaterial: state.materialsReducer.currentMaterial
+    	currentMaterial: state.materialsReducer.currentMaterial,
+    	username: state.usersReducer.username,
+    	email: state.usersReducer.email
     };
 };
 Verify = connect(state => (mapStateToProps), null)(Verify);

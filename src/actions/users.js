@@ -47,10 +47,40 @@ var initUserPool = function(awsRegion, awsIdentityPoolId, awsUserPoolId, awsClie
 let currentUser = {}
 
 
+
+function fetchDefaultUser() {
+  return (dispatch, getState) => {
+    //Let everybody know we are starting to retrieve so they can show spinners or other things
+    dispatch(fetchingBlankPref())
+
+    //Fetch state
+    const state = getState()
+
+    return $.ajax({
+        url : 'https://v04rk4df1m.execute-api.us-east-1.amazonaws.com/dev/preferences/default',
+        type: "GET",
+        contentType: "application/json",
+        headers: {
+            Authorization : state.users.token
+        },
+        success: function(data, textStatus, jqXHR)
+        {
+            dispatch(fetchedBlankPref(data));
+        },
+        error: function (jqXHR, textStatus, errorThrown)
+        {
+            dispatch(fetchingBlankPrefError(textStatus));
+            handleAPIError(jqXHR, textStatus, errorThrown);
+        }
+    });
+  }
+}
+
+
 export function signUp(nickname, email, password){
 
   return function (dispatch) {
-    dispatch(signingUp());
+    dispatch(signingUp(nickname, email));
 
     var userPool = initUserPool(constRegion,
               constIdentityPoolId,
@@ -90,9 +120,10 @@ export function signUp(nickname, email, password){
             console.log(err);
             return;
         }
-        cognitoUser = result.user;
-        console.log('user name is ' + cognitoUser.getUsername());
-        dispatch(signedUp(cognitoUser.getUsername()));
+        // var cognitoUser = result.user;
+        // var cognitoUser = userPool.getCurrentUser();
+        // console.log('user name is ' + cognitoUser.getUsername());
+        // dispatch(signedUp(cognitoUser.getUsername()));
     });
   }
 }
@@ -117,6 +148,8 @@ export function verify(username, confirmCode){
             return;
         }
         console.log('call result: ' + result);
+        console.log('user name is ' + cognitoUser.getUsername());
+        dispatch(signedUp(cognitoUser.getUsername()));
     });
   }
 }
