@@ -25,7 +25,6 @@ class Verify extends Component {
 	    this.props.dispatch(
 	    	verify(username, code)
     	)
-    	appHistory.replace('/dashboard')
 	}
 
 	//why am I setting state every time there is a keypress????

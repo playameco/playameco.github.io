@@ -34,9 +34,6 @@ class SignUp extends Component {
 		this.props.dispatch(
 			signUp(name, email, password)
 		)
-		localStorage.setItem('username', name);
-
-		appHistory.push('/verify')
 	}
 
 	//why am I setting state every time there is a keypress????

@@ -1,6 +1,9 @@
 import { constRegion, constIdentityPoolId, constUserPoolId, constClientId, constCognitoProviderId } from './awsUserConfig'
 import { signingUp, signedUp, passwordChangeSuccess, verificationCodeSent, sendVerificationCodeFailed, noUserInfoAvail, passwordChangeError, updatingPassword, clearingUserMessages, loggingIn, loggedIn, loggedInError, loggingOut, loggingOutError, loggedOut, checkingSession, checkingSessionError, checkedSession } from './actionGenerators/agUsers'
-var browserHistory = require('react-router').browserHistory;
+
+import { Link, useRouterHistory, browserHistory } from 'react-router';
+import { createHashHistory } from 'history'
+const appHistory = useRouterHistory(createHashHistory)({ queryKey: false });
 
 // var AWS = require('aws-sdk');
 
@@ -120,6 +123,7 @@ export function signUp(nickname, email, password){
             console.log(err);
             return;
         }
+        appHistory.push('/verify')
         // var cognitoUser = result.user;
         // var cognitoUser = userPool.getCurrentUser();
         // console.log('user name is ' + cognitoUser.getUsername());
@@ -150,6 +154,7 @@ export function verify(username, confirmCode){
         console.log('call result: ' + result);
         console.log('user name is ' + cognitoUser.getUsername());
         dispatch(signedUp(cognitoUser.getUsername()));
+        appHistory.replace('/dashboard')
     });
   }
 }

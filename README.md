@@ -9,7 +9,7 @@ MVP Features List:
 * [ ] Login
 * [ ] Add Under Construction Label to home page?
 * [ ] Add text content (descriptions) for all recyclable materials to show on 'Learn Page'
-* [ ] SQL Database Setup
+* [ ] Dynamo Database Setup
 * [ ] User Dashboard - Amici collections and accessories, points, settings...
 * [ ] Add a contact page
 * [ ] Point System
