@@ -8,7 +8,7 @@ import {Link,useRouterHistory, browserHistory} from 'react-router';
 import { createHashHistory } from 'history'
 const appHistory = useRouterHistory(createHashHistory)({ queryKey: false });
 
-export default class App extends Component {
+class App extends Component {
 	constructor() {
 		super();
 	    this.state = {
@@ -20,7 +20,7 @@ export default class App extends Component {
     	this.props.dispatch(
     		logout()
     	)
-    	appHistory.replace('/');
+    	this.forceUpdate();
     }
 
 	updateAuth(loggedIn) {
@@ -28,10 +28,11 @@ export default class App extends Component {
 	        loggedIn: !!loggedIn
 	    })
 	}
-
-	// componentWillMount(){
-	//     this.props.dispatch(checkSession());
-	// }
+	componentWillMount(){
+	    if(this.props.username&&this.props.email){
+	    	appHistory.replace('/dashboard');
+	    }
+	}
   render () {
     return (
     	<div>
@@ -42,7 +43,7 @@ export default class App extends Component {
 		      <div>
 			    <Link to='/'>Home</Link>
 			    <Link to='/about'>About</Link>
-			    {this.state.loggedIn ? (
+			    {this.props.username ? (
 	                <Link onClick={this.logOut.bind(this)}>Log out</Link>
 	            ) : (
 	                <Link to="/login">Login</Link>
@@ -54,3 +55,14 @@ export default class App extends Component {
     );
   }
 }
+
+var mapStateToProps = function(state, ownProps){
+    return {
+    	materials: state.materialsReducer.materials,
+    	currentMaterial: state.materialsReducer.currentMaterial,
+    	username: state.usersReducer.username,
+    	email: state.usersReducer.email
+    };
+};
+App = connect(state => (mapStateToProps), null)(App);
+export default App

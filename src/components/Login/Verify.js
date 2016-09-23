@@ -20,7 +20,7 @@ class Verify extends Component {
 	    e.preventDefault();
 
 	    var code = this.refs.code.value;
-	    var username = localStorage.getItem('username');
+	    var username = this.props.username;
 
 	    this.props.dispatch(
 	    	verify(username, code)

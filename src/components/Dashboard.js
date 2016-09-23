@@ -3,7 +3,6 @@ import { connect } from 'react-redux'
 import { getMaterialsList, setCurrentMaterial } from '../actions/actions'
 import { checkSession } from '../actions/users'
 import Select from 'react-select'
-import auth from './Login/auth'
 
 import { useRouterHistory } from 'react-router'
 import { createHashHistory } from 'history'
@@ -24,18 +23,20 @@ class Dashboard extends Component {
 		this.setState({
 			chosenMaterial
 		})
-		localStorage.setItem('chosenMaterial', chosenMaterial)
-		browserHistory.push('/materials');
-		// this.props.dispatch(setCurrentMaterial(chosenMaterial))
+		this.props.dispatch(
+			setCurrentMaterial(chosenMaterial)
+		).then(()=>{
+			appHistory.push('/materials');
+		})
+		// localStorage.setItem('chosenMaterial', chosenMaterial)
 	}
 	componentWillMount(){
-	    this.props.dispatch(checkSession());
-		this.props.dispatch(getMaterialsList())
-	}
-	componentWillUpdate(){
-		// if (this.state.chosenMaterial.length > 0){
-		// 	this.props.dispatch(getMaterialsList(this.state.chosenMaterial))
-		// }
+	    // this.props.dispatch(checkSession());
+	    if(!this.props.username||!this.props.email){
+	    	appHistory.replace('/');
+	    } else {
+	    	this.props.dispatch(getMaterialsList())
+	    }
 	}
 	render(){
 		var optionsArray = [];
@@ -74,7 +75,9 @@ var mapStateToProps = function(state, ownProps){
     return {
     	materials: state.materialsReducer.materials,
     	currentMaterial: state.materialsReducer.currentMaterial,
-    	users: state.users
+    	users: state.users,
+    	username: state.usersReducer.username,
+    	email: state.usersReducer.email
     };
 };
 Dashboard = connect(state => (mapStateToProps), null)(Dashboard);

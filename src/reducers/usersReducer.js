@@ -45,6 +45,7 @@ const user = (state = {error:null,token:null,clientId:null, email:null, pwdUpdat
 
     case 'LOGGED_OUT':
         return {}
+
     case 'CLEARING_USER_MESSAGES':
         return {}
 

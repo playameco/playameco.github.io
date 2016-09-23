@@ -2,10 +2,10 @@ import { UserAuthWrapper } from 'redux-auth-wrapper'
 import { routerActions } from 'react-router-redux'
 
 export const UserIsAuthenticated = UserAuthWrapper({
-  authSelector: state => state.userReducer,
+  authSelector: state => state.usersReducer.username,
   redirectAction: routerActions.replace,
+  failureRedirectPath: '/',
   wrapperDisplayName: 'UserIsAuthenticated'
-
 })
 
 export const UserIsAdmin = UserAuthWrapper({

@@ -38,8 +38,6 @@ export function getMaterialsList(){
  	    const state = getState()
 
  	    var dummyText = "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Phasellus eu arcu nec risus varius fringilla scelerisque quis tortor. Mauris eget accumsan libero, eget aliquet nulla. Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Suspendisse tincidunt est libero, vel porttitor lacus lacinia sit amet. Mauris mauris augue, sodales et metus non, condimentum dapibus nisl. Cras efficitur ipsum non facilisis mattis. Morbi auctor id nisi pulvinar euismod. Morbi pharetra dolor eget imperdiet ornare. In hac habitasse platea dictumst. Duis congue in libero at varius. Donec egestas, lacus eget consequat molestie, nisi dui tristique elit, non ornare nibh ipsum vel ex. Sed id mauris quis nisl laoreet laoreet. Morbi dictum faucibus lacinia. Quisque vel nulla dictum, commodo quam quis, pulvinar mauris.";
- 	    var cardboard = require('../recyclingInfo/cardboard')
- 	    console.log(cardboard)
 
  	    var list = [
 	 	    {
@@ -94,14 +92,14 @@ export function getMaterialsList(){
 	 	    	types: [
 	 	    		{
 	 	    			type: 'Corrugated Cardboard',
-	 	    			description: cardboard.default,
+	 	    			description: null,
 	 	    			tutorial: [
 	 	    				''
 	 	    			]
 	 	    		},
 	 	    		{
 	 	    			type: 'Cardboard Boxes',
-	 	    			description: cardboard.default,
+	 	    			description: null,
 	 	    			tutorial: [
 	 	    				''
 	 	    			]

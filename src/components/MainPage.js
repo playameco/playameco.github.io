@@ -18,13 +18,18 @@ class ExampleComponent1 extends Component {
 		}
 	}
 	chooseMaterial(val){
+		console.log(val)
 		var chosenMaterial = val.value;
 		this.setState({
 			chosenMaterial
 		});
-		localStorage.setItem('chosenMaterial', chosenMaterial)
-		var item = localStorage.getItem('chosenMaterial'); //useless line just to push, need to delete
-		appHistory.push('/materials');
+		this.props.dispatch(
+			setCurrentMaterial(chosenMaterial)
+		).then(()=>{
+			appHistory.push('/materials');
+		})
+		// localStorage.setItem('chosenMaterial', chosenMaterial)
+		// var item = localStorage.getItem('chosenMaterial'); //useless line just to push, need to delete
 		//TODO...
 		//more stuff
 		// this.props.dispatch(setCurrentMaterial(chosenMaterial))
