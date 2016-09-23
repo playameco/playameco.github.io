@@ -4,7 +4,7 @@ import { logout } from './actions/users'
 import { connect } from 'react-redux'
 import { checkSession } from './actions/users'
 
-import {Link,useRouterHistory, browserHistory} from 'react-router';
+import {IndexLink, Link,useRouterHistory, browserHistory} from 'react-router';
 import { createHashHistory } from 'history'
 const appHistory = useRouterHistory(createHashHistory)({ queryKey: false });
 
@@ -41,12 +41,12 @@ class App extends Component {
 		      	<img id='mainlogo' src='images/ameco-logo.svg' alt='amEco App Logo' />
 		      </Link>
 		      <div>
-			    <Link to='/'>Home</Link>
-			    <Link to='/about'>About</Link>
+			    <IndexLink to='/' activeClassName="active-link">Home</IndexLink>|
+			    <Link to='/about' activeClassName="active-link">About</Link>|
 			    {this.props.username ? (
-	                <Link onClick={this.logOut.bind(this)}>Log out</Link>
+	                <Link onClick={this.logOut.bind(this)} activeClassName="active-link">Log out</Link>
 	            ) : (
-	                <Link to="/login">Login</Link>
+	                <Link to="/login" activeClassName="active-link">Login</Link>
 	            )}
 		      </div>
 	        </div>
