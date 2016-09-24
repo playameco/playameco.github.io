@@ -96,19 +96,19 @@ export default {
       ]
     },
 
-    // { onEnter: redirectToLogin,
-    //   childRoutes: [
-    //     // Protected routes that don't share the dashboard UI
-    //     { path: '/user/:id',
-    //       getComponent: (nextState, cb) => {
-    //         require.ensure([], (require) => {
-    //           cb(null, require('./components/User'))
-    //         })
-    //       }
-    //     }
-    //     // ...
-    //   ]
-    // },
+    { onEnter: redirectToLogin,
+      childRoutes: [
+        // Protected routes that don't share the dashboard UI
+        { path: '/verify',
+          getComponent: (nextState, cb) => {
+            require.ensure([], (require) => {
+              cb(null, require('./components/Login/Verify').default)
+            })
+          }
+        }
+        // ...
+      ]
+    },
 
     { path: '/',
       getComponent: (nextState, cb) => {

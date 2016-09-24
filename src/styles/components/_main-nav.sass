@@ -2,13 +2,23 @@
     display: flex
     justify-content: space-between
     align-items: center
-    padding-left: 30px
-    padding-top: 10px
+    padding: 10px 30px
+    span
+        font-size: 30px
+        font-weight: 100
     a
         text-decoration: none
         color: #333
         font-size: 20px
-        padding-right: 30px
-        transition: 0.5s all ease
-        &:hover
-            text-decoration: underline
+        padding: 4px 15px
+        transition: 0.3s all ease
+        &:hover, &:active
+            background: $soft-green
+            border-radius: 5px
+            color: white
+            text-decoration: none
+        &:visited
+            text-decoration: none
+    .active-link
+        color: $soft-green
+        text-decoration: none

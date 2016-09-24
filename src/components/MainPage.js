@@ -1,17 +1,12 @@
 import React, { Component } from 'react'
 import { connect } from 'react-redux'
-import { getMaterialsList, setCurrentMaterial } from '../actions/actions'
+import { getMaterialsList, setCurrentMaterial } from '../actions/materials'
 import Select from 'react-select'
 
 import { useRouterHistory } from 'react-router'
 import { createHashHistory } from 'history'
 const appHistory = useRouterHistory(createHashHistory)({ queryKey: false });
 import { browserHistory } from 'react-router'
-
-import LearnSection from './Materials/LearnSection'
-import RecycleSection from './Materials/RecycleSection'
-import ReuseSection from './Materials/ReuseSection'
-import ReduceSection from './Materials/ReduceSection'
 
 import Leaderboard from './Leaderboard'
 
@@ -23,13 +18,19 @@ class ExampleComponent1 extends Component {
 		}
 	}
 	chooseMaterial(val){
+		console.log(val)
 		var chosenMaterial = val.value;
 		this.setState({
 			chosenMaterial
-		})
-		localStorage.setItem('chosenMaterial', chosenMaterial)
+		});
+		this.props.dispatch(
+			setCurrentMaterial(chosenMaterial)
+		)
 		appHistory.push('/materials');
+		// localStorage.setItem('chosenMaterial', chosenMaterial)
+		// var item = localStorage.getItem('chosenMaterial'); //useless line just to push, need to delete
 		//TODO...
+		//more stuff
 		// this.props.dispatch(setCurrentMaterial(chosenMaterial))
 	}
 	componentWillMount(){

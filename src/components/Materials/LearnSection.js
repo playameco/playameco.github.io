@@ -3,6 +3,9 @@ import { connect } from 'react-redux'
 
 import IndividualMaterial from './IndividualMaterial'
 
+import Cardboard from './Types/Cardboard'
+import Paper from './Types/Paper'
+
 class LearnSection extends Component {
   constructor(){
     super();
@@ -31,7 +34,7 @@ class LearnSection extends Component {
     })
   }
   componentWillMount(){
-    var material = localStorage.getItem('chosenMaterial');
+    var material = this.props.currentMaterial;
     var typesArray = [];
     this.props.materials.filter(function(val){
       if (val.name === material){
@@ -53,7 +56,16 @@ class LearnSection extends Component {
   	})
     var display = '';
     if (this.state.showDescription){
-      display = <IndividualMaterial toggleDescription={this.toggleDescription.bind(this)} description={this.state.description} />;
+      switch (this.state.material){
+        case 'cardboard':
+          display = <Cardboard />
+          break;
+        case 'paper':
+          display = <Paper />
+          break;
+        default:
+          display = <IndividualMaterial toggleDescription={this.toggleDescription.bind(this)} description={this.state.description} />;
+      }
     } else {
       display = materialsJSX;
     }
@@ -68,7 +80,8 @@ class LearnSection extends Component {
 
 var mapStateToProps = function(state, ownProps){
     return {
-    	materials: state.materialsReducer.materials
+    	materials: state.materialsReducer.materials,
+      currentMaterial: state.materialsReducer.currentMaterial
     };
 };
 LearnSection = connect(state => (mapStateToProps), null)(LearnSection);

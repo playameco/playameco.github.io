@@ -10,9 +10,8 @@ class ReuseSection extends Component {
     }
   }
   componentWillMount(){
-    var material = localStorage.getItem('chosenMaterial');
     this.setState({
-      material
+      material: this.props.currentMaterial
     })
   }
   render() {
