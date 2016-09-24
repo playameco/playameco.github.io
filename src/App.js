@@ -38,7 +38,7 @@ class App extends Component {
     	<div>
     		<div className='main-top-nav'>
 		      <Link to='/'>
-		      	<img id='mainlogo' src='images/ameco-logo.svg' alt='amEco App Logo' />
+		      		<img id='mainlogo' src='images/ameco-logo.svg' alt='amEco App Logo' />
 		      </Link>
 		      <div>
 			    <IndexLink to='/' activeClassName="active-link">Home</IndexLink>|

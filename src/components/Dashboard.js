@@ -67,8 +67,8 @@ class Dashboard extends Component {
 				<div className='dashboard-amicis'>
 					<h1>Amici Collection</h1>
 				</div>
-				<div>
-					<h1>Some other feed here...</h1>
+				<div className='dashboard-games'>
+					<h1>Favorite Games</h1>
 				</div>
 			</div>
 			)
