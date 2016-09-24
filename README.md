@@ -7,6 +7,7 @@
 MVP Features List:
 
 * [x] Login/Logout/Signup
+* [ ] Add loading spinner while logging in (add for global use in other functions too)
 * [ ] Should be able to login with username or email
 * [x] Private Routes
 * [ ] Add Under Construction Label to home page?

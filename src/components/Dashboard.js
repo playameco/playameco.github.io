@@ -46,26 +46,30 @@ class Dashboard extends Component {
 			})
 		}
 		return (
-			<div className='main-page-component user-dashboard'>
-				<h1 style={{textAlign: 'center'}}>Welcome Back</h1>
-				<div className='main-page-question'>
-					<h1>What do I do with</h1>
-					<Select
-	                      value={this.state.chosenMaterial}
-	                      className="materials-select"
-	                      clearable={false}
-	                      options={optionsArray}
-	                      searchable={true}
-	                      autofocus={true}
-	                      placeholder='Choose a Material...'
-	                      onChange={this.chooseMaterial.bind(this)}
-	                  />
-			        <h1>?</h1>
+			<div className='user-dashboard'>
+				<div className='dashboard-header'>
+					<h1 style={{textAlign: 'center'}}>Welcome Back {this.props.username}</h1>
+					<div className='user-dashboard-question'>
+						<h1>What do I do with</h1>
+						<Select
+		                      value={this.state.chosenMaterial}
+		                      className="materials-select"
+		                      clearable={false}
+		                      options={optionsArray}
+		                      searchable={true}
+		                      autofocus={true}
+		                      placeholder='Choose a Material...'
+		                      onChange={this.chooseMaterial.bind(this)}
+		                  />
+				        <h1>?</h1>
+					</div>
 				</div>
-				<div id='survey'>
-					<a href="https://docs.google.com/forms/d/e/1FAIpQLSf_hhL8G5ik71rHZFiHDAGKdMv7-30K_gKk74vYFA0CbgXWBA/viewform?usp=send_form">Take our 3 question survey and be<br />the first to know when we launch!</a>
+				<div className='dashboard-amicis'>
+					<h1>Amici Collection</h1>
 				</div>
-				<Leaderboard />
+				<div>
+					<h1>Some other feed here...</h1>
+				</div>
 			</div>
 			)
 	}
