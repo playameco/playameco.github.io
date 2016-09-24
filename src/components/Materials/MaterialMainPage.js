@@ -1,6 +1,6 @@
 import React, {Component} from 'react'
 import { connect } from 'react-redux'
-import { getMaterialsList } from '../../actions/actions'
+import { getMaterialsList } from '../../actions/materials'
 
 import LearnSection from './LearnSection'
 import RecycleSection from './RecycleSection'
@@ -19,7 +19,7 @@ class MaterialMainPage extends Component {
 		}
 	}
 	componentWillMount(){
-		var material = localStorage.getItem('chosenMaterial');
+		var material = this.props.currentMaterial;
 		this.setState({
 			material
 		})

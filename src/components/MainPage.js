@@ -1,6 +1,6 @@
 import React, { Component } from 'react'
 import { connect } from 'react-redux'
-import { getMaterialsList, setCurrentMaterial } from '../actions/actions'
+import { getMaterialsList, setCurrentMaterial } from '../actions/materials'
 import Select from 'react-select'
 
 import { useRouterHistory } from 'react-router'
@@ -25,9 +25,8 @@ class ExampleComponent1 extends Component {
 		});
 		this.props.dispatch(
 			setCurrentMaterial(chosenMaterial)
-		).then(()=>{
-			appHistory.push('/materials');
-		})
+		)
+		appHistory.push('/materials');
 		// localStorage.setItem('chosenMaterial', chosenMaterial)
 		// var item = localStorage.getItem('chosenMaterial'); //useless line just to push, need to delete
 		//TODO...

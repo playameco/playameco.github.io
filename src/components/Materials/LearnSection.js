@@ -34,7 +34,7 @@ class LearnSection extends Component {
     })
   }
   componentWillMount(){
-    var material = localStorage.getItem('chosenMaterial');
+    var material = this.props.currentMaterial;
     var typesArray = [];
     this.props.materials.filter(function(val){
       if (val.name === material){
@@ -80,7 +80,8 @@ class LearnSection extends Component {
 
 var mapStateToProps = function(state, ownProps){
     return {
-    	materials: state.materialsReducer.materials
+    	materials: state.materialsReducer.materials,
+      currentMaterial: state.materialsReducer.currentMaterial
     };
 };
 LearnSection = connect(state => (mapStateToProps), null)(LearnSection);

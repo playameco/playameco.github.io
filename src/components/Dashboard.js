@@ -1,6 +1,6 @@
 import React, { Component } from 'react'
 import { connect } from 'react-redux'
-import { getMaterialsList, setCurrentMaterial } from '../actions/actions'
+import { getMaterialsList, setCurrentMaterial } from '../actions/materials'
 import { checkSession } from '../actions/users'
 import Select from 'react-select'
 
