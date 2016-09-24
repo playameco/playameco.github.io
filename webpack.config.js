@@ -7,7 +7,7 @@ var extractCSS = new ExtractTextPlugin('[name].css');
 // var AWS_SDK_BUNDLE = 'aws-sdk/dist/aws-sdk.min.js';
 
 module.exports = {
-  devtool: 'eval',
+  devtool: 'inline-source-map',
   entry: [
     './src/index'
   ],

@@ -1,21 +1,23 @@
 export const loggingIn = () => {
   return {
-    type: 'LOGGING-IN'
+    type: 'LOGGING_IN'
   }
 }
 
-export const loggedIn = (identityId, token, clientId) => {
+export const loggedIn = (token, username) => {
+  console.log(token, username)
   return {
-    type: 'LOGGED-IN',
-    identityId,
+    type: 'LOGGED_IN',
     token,
-    clientId
+    username
+    // token,
+    // clientId
   }
 }
 
 export const loggedInError = (error) => {
   return {
-    type: 'LOGGED-IN-ERROR',
+    type: 'LOGGED_IN_ERROR',
     error
   }
 }
@@ -28,9 +30,10 @@ export const signingUp = (username, email) => {
   }
 }
 
-export const signedUp = (username) => {
+export const signedUp = (identityId, username) => {
   return {
     type: 'SIGNED_UP',
+    identityId,
     username
   }
 }

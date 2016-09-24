@@ -64,9 +64,9 @@ class Login extends Component {
 
 		            <div className="field-wrap">
 		            <label className={this.state.showEmailLabel ? '' : 'active highlight'}>
-		              Email Address<span className="req">*</span>
+		              Username<span className="req">*</span>
 		            </label>
-		            <input ref='email' onKeyUp={this.toggleEmailLabel.bind(this)} type="email" required autoComplete="off"/>
+		            <input ref='email' onKeyUp={this.toggleEmailLabel.bind(this)} type="text" required autoComplete="off"/>
 		          </div>
 
 		          <div className="field-wrap">

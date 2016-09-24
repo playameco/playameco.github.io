@@ -153,7 +153,7 @@ export function verify(username, confirmCode){
         }
         console.log('call result: ' + result);
         console.log('user name is ' + cognitoUser.getUsername());
-        dispatch(signedUp(cognitoUser.getUsername()));
+        dispatch(signedUp(AWS.config.credentials.identityId, cognitoUser.getUsername()));
         appHistory.replace('/dashboard')
     });
   }
@@ -163,20 +163,20 @@ export function verify(username, confirmCode){
 export function login(username, password) {
 
   return function (dispatch) {
-    dispatch(loggingIn());
+      dispatch(loggingIn());
 
-    console.log(username, password)
+      console.log(username, password)
 
-    var userPool = initUserPool(constRegion,
-              constIdentityPoolId,
-              constUserPoolId,
-              constClientId);
+      var userPool = initUserPool(constRegion,
+                constIdentityPoolId,
+                constUserPoolId,
+                constClientId);
 
-    //console.log(userPool);
+      //console.log(userPool);
 
-    AWS.config.region = constRegion;
+      AWS.config.region = constRegion;
 
-    var authenticationData = {
+      var authenticationData = {
           Username : username,
           Password : password
       };
@@ -190,91 +190,90 @@ export function login(username, password) {
       // debugger;
       cognitoUser.authenticateUser(authenticationDetails, {
           onSuccess: function (result) {
+            console.log(result)
             var jwtToken = result.getAccessToken().getJwtToken();
-          //Use the AWS Identity Pool JWT Token to request temporary token from AWS Cognito Identity
-          var logins = {};
-          logins[constCognitoProviderId] = result.idToken.jwtToken;
-          AWS.config.credentials = new AWS.CognitoIdentityCredentials({
-            IdentityPoolId: constIdentityPoolId,
-            IdentityId: AWS.config.credentials.identityId,
-            Logins: logins
-          });
+            console.log(jwtToken)
+            //Use the AWS Identity Pool JWT Token to request temporary token from AWS Cognito Identity
+            var logins = {};
+            logins[constCognitoProviderId] = result.idToken.jwtToken;
+            AWS.config.credentials = new AWS.CognitoIdentityCredentials({
+              IdentityPoolId: constIdentityPoolId,
+              IdentityId: AWS.config.credentials.identityId,
+              Logins: logins
+            });
+            console.log(logins, AWS.config.credentials.identityId, cognitoUser.getUsername())
+            dispatch(loggedIn(jwtToken, cognitoUser.getUsername()));
+            appHistory.replace('/dashboard')
 
-          AWS.config.credentials.get(function (err) {
-            // now I'm using authenticated credentials
-            if(err)
-            {
-                console.log('error in autheticatig AWS'+err);
-                dispatch(loggedInError(err));
-            }
-            else
-            {
+          // AWS.config.credentials.get(function (err) {
+          //   // now I'm using authenticated credentials
+          //   if (err) {
+          //       console.log('error in autheticatig AWS'+err);
+          //       dispatch(loggedInError(err));
+          //   } else {
+                // dispatch(loggedIn(AWS.config.credentials.identityId, cognitoUser.getUsername()));
+                // appHistory.replace('/dashboard')
                 //Successfully signed in, routes to dashboard
 
-                //Pull Cognito Dataset
-                var client = new AWS.CognitoSyncManager();
+                // //Pull Cognito Dataset
+                // var client = new AWS.CognitoSyncManager();
 
-                client.openOrCreateDataset('ameco-users', function(err, dataset) {
-                dataset.synchronize({
+                // client.openOrCreateDataset('ameco-users', function(err, dataset) {
+                // dataset.synchronize({
 
-                  onSuccess: function(dataset, newRecords) {
-                     dataset.get('ameco-users', function(err, value) {
-                      if(err){
-                        dispatch(loggedInError("No client associated with this account, please contact support."));
-                      }
-                      else{
-                        if (value){
-                          var data = JSON.parse(value);
-                          dispatch(loggedIn(AWS.config.credentials.identityId, result.accessToken.jwtToken, data.clientId));
-                        }
-                        else{
-                          dispatch(loggedInError("No client associated with this account, please contact support."));
-                        }
-                      }
-                     });
+                //   onSuccess: function(dataset, newRecords) {
+                //      dataset.get('ameco-users', function(err, value) {
+                //       if(err){
+                //         dispatch(loggedInError("No client associated with this account, please contact support."));
+                //       }
+                //       else{
+                //         if (value){
+                //           var data = JSON.parse(value);
+                //           dispatch(loggedIn(AWS.config.credentials.identityId, result.accessToken.jwtToken, data.clientId));
+                //         }
+                //         else{
+                //           dispatch(loggedInError("No client associated with this account, please contact support."));
+                //         }
+                //       }
+                //      });
 
-                  },
+                //   },
 
-                  onFailure: function(err) {
-                     console.log('sync failure:' + err);
-                  },
+                //   onFailure: function(err) {
+                //      console.log('sync failure:' + err);
+                //   },
 
-                  onConflict: function(dataset, conflicts, callback) {
-                    //should never hit this as we really aren't allowing users to remove dataset
-                    console.log('sync conflict:' + err);
-                  },
+                //   onConflict: function(dataset, conflicts, callback) {
+                //     //should never hit this as we really aren't allowing users to remove dataset
+                //     console.log('sync conflict:' + err);
+                //   },
 
-                  onDatasetDeleted: function(dataset, datasetName, callback) {
-                     // Return true to delete the local copy of the dataset.
-                     // Return false to handle deleted datasets outside ethe synchronization callback.
-                     return callback(true);
-                  },
+                  // onDatasetDeleted: function(dataset, datasetName, callback) {
+                  //    // Return true to delete the local copy of the dataset.
+                  //    // Return false to handle deleted datasets outside ethe synchronization callback.
+                  //    return callback(true);
+                  // },
 
-                  onDatasetMerged: function(dataset, datasetNames, callback) {
-                     // Return true to continue the synchronization process.
-                     // Return false to handle dataset merges outside the synchroniziation callback.
-                     return callback(false);
-                  }
+                  // onDatasetMerged: function(dataset, datasetNames, callback) {
+                  //    // Return true to continue the synchronization process.
+                  //    // Return false to handle dataset merges outside the synchroniziation callback.
+                  //    return callback(false);
+                  // }
+                // });
 
-                });
-
-              });
+              // });
 
 
+            },
+            onFailure: function(err) {
+                var errResult = err.message;
+                if (err.message.includes('Username/client id combination not found')) {
+                    errResult = 'Incorrect username or password.';
+                }
+                dispatch(loggedInError(errResult));
             }
-          });
-        },
-        onFailure: function(err) {
-			var errResult = err.message;
-			if(err.message.includes('Username/client id combination not found'))
-			{
-				errResult = 'Incorrect username or password.';
-			}
-
-            dispatch(loggedInError(errResult));
-        },
-    });
-  };
+          })
+    }
 }
 
 export function checkSession() {

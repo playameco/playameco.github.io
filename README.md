@@ -6,14 +6,17 @@
 
 MVP Features List:
 
-* [ ] Login
+* [ ] Login/Logout/Signup
+* [ ] Should be able to login with username or email
+* [x] Private Routes
 * [ ] Add Under Construction Label to home page?
 * [ ] Add text content (descriptions) for all recyclable materials to show on 'Learn Page'
-* [ ] Dynamo Database Setup
+* [x] Dynamo Database Setup
+* [ ] Link Dynamo with API Gateway
 * [ ] User Dashboard - Amici collections and accessories, points, settings...
 * [ ] Add a contact page
-* [ ] Point System
-* [ ] Redesign Menu
+* [ ] Point System for learning with gifs/images/text
+* [x] Redesign Menu
 * [ ] Leaderboard should be fully functional
 * [x] Remove query params from URL
 * [ ] Amici collection system

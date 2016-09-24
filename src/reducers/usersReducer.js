@@ -1,22 +1,22 @@
-const user = (state = {error:null,token:null,clientId:null, email:null, pwdUpdated:null}, action) => {
+const user = (state = {error:null, token:null, username:null, email:null, id:null}, action) => {
   switch (action.type) {
-    case 'LOGGING-IN':
+    case 'LOGGING_IN':
         return Object.assign({}, state, {
           error: '',
-          token: '',
-          clientId:''
+          username: '',
+          email: '',
+          id:'',
+          token: ''
         })
-    case 'LOGGED-IN-ERROR':
+    case 'LOGGED_IN_ERROR':
       return Object.assign({}, state, {
           error: action.error,
-          token: '',
-          clientId:''
+          identityId: '',
         })
-    case 'LOGGED-IN':
+    case 'LOGGED_IN':
       return Object.assign({}, state, {
-        identityId: action.identityId,
         token: action.token,
-        clientId: action.clientId
+        username: action.username
       })
 
     case 'SIGNING_UP':
@@ -29,13 +29,16 @@ const user = (state = {error:null,token:null,clientId:null, email:null, pwdUpdat
     case 'SIGNED_UP':
       return {
         ...state,
+        identityId: action.identityId,
         username: action.username
       }
 
     case 'LOGGING_OUT':
         return Object.assign({}, state, {
-          token: '',
-          clientId:''
+          identityId: '',
+          username:'',
+          email: '',
+          token: ''
         })
 
     case 'LOGGING_OUT_ERROR':
