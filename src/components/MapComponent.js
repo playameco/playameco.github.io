@@ -2,7 +2,7 @@ import React from "react";
 import {connect} from "react-redux";
 import * as MarkersService from "../services/markersService";
 import * as Store from "../store/store";
-import {initMap} from "../actions/actions";
+import {initMap} from "../actions/materials";
 import {GoogleMapLoader, GoogleMap, Marker} from "react-google-maps";
 
 class MapComponent extends React.Component {

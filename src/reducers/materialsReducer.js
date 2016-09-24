@@ -7,7 +7,7 @@ function materialsReducer(state = '', action){
       }
     case 'SET_CURRENT_MATERIAL':
     	return {
-    		state,
+    		...state,
     		currentMaterial: action.currentMaterial
     	}
     default:

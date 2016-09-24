@@ -6,12 +6,19 @@
 
 MVP Features List:
 
-* [ ] Login
-* [ ] Add Under Construction Label to home page
-* [ ] Add text content (descriptions) for all recyclable materials to show on 'Learn Page'
-* [ ] SQL Database Setup
+* [x] Login/Logout/Signup
+* [ ] Add loading spinner while logging in (add for global use in other functions too)
+* [ ] Should be able to login with username or email
+* [x] Private Routes
+* [ ] Add Under Construction Label to home page?
+* [x] Dynamo Database Setup
+* [ ] Link Dynamo with API Gateway
 * [ ] User Dashboard - Amici collections and accessories, points, settings...
-* [ ] Point System
+* [ ] Add a contact page
+* [ ] *Add text content (descriptions) for all recyclable materials to show on 'Learn Page'*
+* [ ] *Point System for learning with gifs/images/text*
+* [x] Redesign Menu
+* [ ] Leaderboard should be fully functional
 * [x] Remove query params from URL
 * [ ] Amici collection system
 * [ ] Recycle locations should be live
@@ -20,10 +27,20 @@ MVP Features List:
 * [ ] Ability for users add new recycle locations
 * [ ] Nice to have: connect in to OpenStreetMap to get that info into the open data ecosystem.
 * [ ] Ability to verify recycle locations
-
-Version 2+ Features:
-
+* [ ] Points for inviting people and for inviting active users
 * [ ] Text box tutorial series for site and app (swiping screens for mobile)
+* [ ] Social Aspects
+* [ ] Related Forum Linked
+
+Version 2 Features:
+
 * [ ] Recycling pick-up features
 * [ ] Micro-games
 * [ ] Mobile App - React Native
+* [ ] Features based on connectivity
+* [ ] Skins for app
+* [ ] Start Mobile App
+
+Version 3 Features:
+
+* [ ] User Generated Content

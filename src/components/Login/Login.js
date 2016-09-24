@@ -1,6 +1,12 @@
 import React, { Component } from 'react'
-import { Link, withRouter, browserHistory } from 'react-router'
 import auth from './auth'
+
+import { Link, useRouterHistory, browserHistory } from 'react-router';
+import { createHashHistory } from 'history'
+const appHistory = useRouterHistory(createHashHistory)({ queryKey: false });
+
+import { connect } from 'react-redux'
+import { login } from '../../actions/users'
 
 class Login extends Component {
 	constructor(){
@@ -11,25 +17,18 @@ class Login extends Component {
 			error: false
 		}
 	}
-	handleSubmit(event){
-	    event.preventDefault();
+	onLogin(e){
+	    e.preventDefault();
 
 	    const email = this.refs.email.value;
 	    const pwd = this.refs.pwd.value;
 
-	    auth.login(email, pwd, (loggedIn) => {
-		    if (!loggedIn){
-		        return this.setState({ error: true })
-		    }
+	    this.props.dispatch(
+	    	login(email, pwd)
+    	)
 
-	        // const { location } = this.props
+        appHistory.push('/')
 
-	      // if (location.state && location.state.nextPathname) {
-	      //   this.props.router.replace(location.state.nextPathname)
-	      // } else {
-	        browserHistory.push('/')
-	      // }
-	    })
 	}
 
 	//why am I setting state every time there is a keypress????
@@ -61,13 +60,13 @@ class Login extends Component {
     		<div id="login-form">
 		          <h1>Welcome Back!</h1>
 
-		          <form onSubmit={this.handleSubmit.bind(this)}>
+		          <form onSubmit={this.onLogin.bind(this)}>
 
 		            <div className="field-wrap">
 		            <label className={this.state.showEmailLabel ? '' : 'active highlight'}>
-		              Email Address<span className="req">*</span>
+		              Username<span className="req">*</span>
 		            </label>
-		            <input ref='email' onKeyUp={this.toggleEmailLabel.bind(this)} type="email" required autoComplete="off"/>
+		            <input ref='email' onKeyUp={this.toggleEmailLabel.bind(this)} type="text" required autoComplete="off"/>
 		          </div>
 
 		          <div className="field-wrap">
@@ -91,4 +90,11 @@ class Login extends Component {
   }
 }
 
+var mapStateToProps = function(state, ownProps){
+    return {
+    	materials: state.materialsReducer.materials,
+    	currentMaterial: state.materialsReducer.currentMaterial
+    };
+};
+Login = connect(state => (mapStateToProps), null)(Login);
 export default Login

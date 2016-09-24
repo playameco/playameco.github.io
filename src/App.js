@@ -1,21 +1,26 @@
 import React, { Component } from 'react'
-import auth from './components/Login/auth'
+import { logout } from './actions/users'
 
-import {Link,useRouterHistory, browserHistory} from 'react-router';
+import { connect } from 'react-redux'
+import { checkSession } from './actions/users'
+
+import {IndexLink, Link,useRouterHistory, browserHistory} from 'react-router';
 import { createHashHistory } from 'history'
 const appHistory = useRouterHistory(createHashHistory)({ queryKey: false });
 
-export default class App extends Component {
+class App extends Component {
 	constructor() {
 		super();
 	    this.state = {
-	        loggedIn: auth.loggedIn()
+	        loggedIn: false
 	    }
     }
 
     logOut(){
-    	auth.logout();
-    	appHistory.push('/');
+    	this.props.dispatch(
+    		logout()
+    	)
+    	this.forceUpdate();
     }
 
 	updateAuth(loggedIn) {
@@ -23,22 +28,26 @@ export default class App extends Component {
 	        loggedIn: !!loggedIn
 	    })
 	}
-
-	componentWillMount() {
-	    auth.onChange = this.updateAuth.bind(this);
-	    auth.login()
+	componentWillMount(){
+	    if(this.props.username&&this.props.email){
+	    	appHistory.replace('/dashboard');
+	    }
 	}
   render () {
     return (
     	<div>
     		<div className='main-top-nav'>
 		      <Link to='/'>
-		      	<img id='mainlogo' src='images/ameco-logo.svg' alt='amEco App Logo' />
+		      		<img id='mainlogo' src='images/ameco-logo.svg' alt='amEco App Logo' />
 		      </Link>
 		      <div>
-			    <Link to='/'>Home</Link>
-			    <Link to='/about'>About</Link>
-	            
+			    <IndexLink to='/' activeClassName="active-link">Home</IndexLink>|
+			    <Link to='/about' activeClassName="active-link">About</Link>|
+			    {this.props.username ? (
+	                <Link onClick={this.logOut.bind(this)} activeClassName="active-link">Log out</Link>
+	            ) : (
+	                <Link to="/login" activeClassName="active-link">Login</Link>
+	            )}
 		      </div>
 	        </div>
 	        {this.props.children}
@@ -47,9 +56,13 @@ export default class App extends Component {
   }
 }
 
-
-// {this.state.loggedIn ? (
-// 	                <Link onClick={this.logOut.bind(this)}>Log out</Link>
-// 	            ) : (
-// 	                <Link to="/login">Login</Link>
-// 	            )}
+var mapStateToProps = function(state, ownProps){
+    return {
+    	materials: state.materialsReducer.materials,
+    	currentMaterial: state.materialsReducer.currentMaterial,
+    	username: state.usersReducer.username,
+    	email: state.usersReducer.email
+    };
+};
+App = connect(state => (mapStateToProps), null)(App);
+export default App

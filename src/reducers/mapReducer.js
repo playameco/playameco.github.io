@@ -1,4 +1,4 @@
-import {ACTIONS} from "../actions/actions"
+import {ACTIONS} from "../actions/materials"
 
 /** coords of Lafyette */
 const initialState = {
