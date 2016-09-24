@@ -32,7 +32,7 @@ class Dashboard extends Component {
 	}
 	componentWillMount(){
 	    // this.props.dispatch(checkSession());
-	    if(!this.props.username||!this.props.email){
+	    if(!this.props.username){
 	    	appHistory.replace('/');
 	    } else {
 	    	this.props.dispatch(getMaterialsList())

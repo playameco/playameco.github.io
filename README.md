@@ -6,7 +6,7 @@
 
 MVP Features List:
 
-* [ ] Login/Logout/Signup
+* [x] Login/Logout/Signup
 * [ ] Should be able to login with username or email
 * [x] Private Routes
 * [ ] Add Under Construction Label to home page?

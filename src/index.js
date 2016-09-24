@@ -21,6 +21,7 @@ import ReuseSection from './components/Materials/ReuseSection'
 import ReduceSection from './components/Materials/ReduceSection'
 
 import Login from './components/Login/LoginMain'
+import DashboardWrapper from './components/DashboardWrapper'
 import Dashboard from './components/Dashboard'
 import ForgotPassword from './components/Login/ForgotPassword'
 import PasswordReset from './components/Login/PasswordReset'
@@ -46,7 +47,7 @@ ReactDOM.render(
 				<Route path='/verify' component={Verify} />
 				<Route path='/forgot-password' component={ForgotPassword} />
 				<Route path='/reset-password' component={PasswordReset} />
-				<Route path='/dashboard' component={UserIsAuthenticated(Dashboard)} />
+				<Route path='/dashboard' component={Dashboard} />
 			</Route>
 		</Router>
 	</Provider>,
